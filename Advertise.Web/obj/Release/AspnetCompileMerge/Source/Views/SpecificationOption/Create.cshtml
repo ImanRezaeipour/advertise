@@ -1,0 +1,58 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.SpecificationOption.SpecificationOptionCreateViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CreateSpecificationOption;
+}
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.CreateSpecificationOption</h4>
+        <button form="newSpecificationOption" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.SpecificationOption.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="newSpecificationOption" action="@Url.Action(MVC.SpecificationOption.Create())" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="input-container half">
+                <label for="CategoryId" class="rl-label">@Admin.Category2</label>
+                <div id="CategoryTree" style="direction:rtl" class="tree" data-action="treeCategorySpecificationOption" data-event="load"></div>
+                <input type="hidden" id="CategoryId" name="CategoryId" value="@Model.CategoryId" data-val="true" data-val-required="@Admin.RequiredCategory" />
+                <span class="field-validation-error" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="SpecificationId" class="rl-label tooltipster" title="@Admin.ItShowsSpecificationTitleForOption">@Admin.Specification2</label>
+                <input type="hidden" name="SpecificationId" id="SpecificationId" value="" data-val="true" data-val-required="@Admin.RequiredSpecification" />
+                <select id="specificationContainer" data-action="specChange" data-event="change" data-val="true" data-val-required="@Admin.RequiredSpecification">
+                    <option value="" selected>@Admin.Choose</option>
+                </select>
+            </div>
+            <div class="input-container half">
+                <label for="OptionsList" class="rl-label">@Admin.Title</label>
+                <div id="OptionsList" class="tree">
+                    <a class="button primary" data-action="addSpecificationoption" data-event="click" href="#">
+                        <i class="fa fa-plus-square"></i>
+                        <span>@Admin.AddSpecificationOption</span>
+                    </a>
+                    <div id="items">
+                        <div id="item" data-index="0">
+                            <div class="input-container">
+                                <input type="hidden" name="Options.Index" value="0" />
+                                <input type="text" id="Options[0].Title" name="Options[0].Title" style="width: 80%; float: right;" class="tooltipster" title="@Admin.ItShowsSpecificationOptionTitle" data-val="true" data-val-required="@Admin.RequiredTitle2" />
+                                <button type="button" class="btn btn-danger fa fa-trash" data-action="removeSpecificationoption" data-event="click" data-param="0" style="width: 10%; float: right;"></button>
+                                <span class="field-validation-error" data-valmsg-for="Options[0].Title" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

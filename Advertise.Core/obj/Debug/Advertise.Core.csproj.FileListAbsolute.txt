@@ -1,0 +1,50 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.fa-IR.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.csproj.GenerateResource.Cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.ar-SA.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Debug\Advertise.Core.csprojResolveAssemblyReference.cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.Helpers.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.Mvc.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.WebPages.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\System.Linq.Dynamic.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\StructureMap.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\StructureMap.DynamicInterception.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\StructureMap.Web.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Debug\Castle.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Advertise.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Advertise.Core.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\ar-SA\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\fa-IR\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\AutoMapper.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\StructureMap.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\StructureMap.DynamicInterception.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\StructureMap.Web.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\bin\Debug\Castle.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.ar-SA.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.Languages.Admin.fa-IR.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.csproj.GenerateResource.Cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\ar-SA\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\fa-IR\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Debug\Advertise.Core.pdb

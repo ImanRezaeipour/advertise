@@ -1,0 +1,43 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.ProductReview.ProductReviewEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.EditReview;
+}
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>Admin.EditReview</h4>
+        <button form="editProductReview" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.ProductReview.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="editProductReview" action="@Url.Action(MVC.ProductReview.Edit())" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" id="ProductId" name="ProductId" value="@Model.ProductId" />
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            <div class="input-container half">
+                <label class="rl-label">@Admin.Title : @Model.ProductTitle </label>
+            </div>
+            <div clas="input-container half">
+                <label for="IsActive" class="rl-label tooltipster" title="@Admin.ItActivesOrDeactivesReview">@Admin.Status</label>
+                <input type="checkbox" id="IsActive" name="IsActive" value="true" checked="@Model.IsActive" />
+                <input type="hidden" name="IsActive" value="false" />
+            </div>
+            <div class="input-container">
+                <label for="Body" class="rl-label tooltipster" title="@Admin.ItShowsReviewText">@Admin.ReviewText</label>
+                <textarea id="Body" name="Body" data-action="fillEditorCompanyReview" data-event="load" data-val="true" data-val-required="@Admin.RequiredExplain">
+                    @Model.Body
+                </textarea>
+                <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

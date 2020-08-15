@@ -1,0 +1,80 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CreateCompany;
+}
+@model Advertise.Core.Models.Company.CompanyCreateViewModel
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.CreateCompany</h4>
+            <button form="newCompany" type="submit" class="button primary">
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+            <a class="button primary" href="@Url.Action(MVC.Company.List())">
+                <i class="fa fa-undo"></i>
+                <span>@Admin.Return</span>
+            </a>
+        </div>
+        <div class="form-box-item">
+            @*<form id="newCompany" action="@Url.Action(MVC.Company.Create())" method="Post">
+                @Html.AntiForgeryToken()
+                <div class="input-container half">
+                    <label for="BrandName" class="rl-label">@Admin.BrandName</label>
+                    <input type="text" id="BrandName" name="BrandName" placeholder="@Admin.BrandName" data-val="true" class="tooltipster" title="@Admin.ItShowsCompanyName"  data-val-required="@Admin.RequiredBrandName" data-val-length="@Admin.MessageLengthBrandName" data-val-length-min="2" data-val-length-max="30"/>
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="WebSite" class="rl-label">@Admin.WebSite</label>
+                    <input type="text" id="WebSite" name="WebSite" placeholder="@Admin.ExampleWebsite"  class="tooltipster" title="@Admin.ItShowsCompanyWebsite" data-val="true" data-val-url="@Admin.RegularWebsite"/>
+                    <span class="field-validation-error" data-valmsg-for="WebSite" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Email" class="rl-label">@Admin.Email</label>
+                    <input type="text" id="Email" name="Email" placeholder="@Admin.ExampleEmail"  class="tooltipster" title="@Admin.ItShowsEmail" data-val="true" data-val-required="@Admin.RequiredEmail" data-val-email="@Admin.RegularEmail"/>
+                    <span class="field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="PhoneNumber" class="rl-label">@Admin.Phone</label>
+                    <input type="text" id="PhoneNumber" name="PhoneNumber" placeholder="@Admin.ExamplePhoneNumber"  class="tooltipster" title="@Admin.ItShowsPhoneNumber" data-val="true" data-val-length="@Admin.MessageLengthPhoneNumber" data-val-length-min="11" data-val-length-max="11" data-val-number="@Admin.RegularEmployeeCount" data-pattern="numeric"/>
+                    <span class="field-validation-error" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="LogoFileName" class="rl-label">@Admin.UploadLogo</label>
+                    <input type="file" name="LogoFileName" accept=".jpg,.png" id="LogoFileName" data-action="uploaderCompany" data-event="load" class="tooltipster" title="@Admin.ItShowsLogo">
+                    <div id="PreviewContainer"></div>
+                    <span class="field-validation-error" data-valmsg-for="LogoFileName" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="MobileNumber" class="rl-label">@Admin.Mobile</label>
+                    <input type="text" id="MobileNumber" name="MobileNumber" placeholder="@Admin.ExampleMobileNumber"  class="tooltipster" title="@Admin.ItShowsMobileNumber" data-val="true" data-val-required="@Admin.RequiredMobileNumber" data-val-length="@Admin.MessageLengthMobileNumber" data-val-length-min="11" data-val-length-max="11" data-val-number="@Admin.RegularEmployeeCount" data-pattern="numeric"/>
+                    <span class="field-validation-error" data-valmsg-for="MobileNumber" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="EmployeeCount" class="rl-label">@Admin.EmployeeCount</label>
+                    <input type="text" id="EmployeeCount" name="EmployeeCount" placeholder="@Admin.EmployeeCount"  class="tooltipster" title="@Admin.ItShowsEmployeeNumber" data-val="true" data-val-length="@Admin.MessageLengthEmployeeCount" data-val-length-max="4" data-val-number="@Admin.RegularEmployeeCount" data-pattern="numeric"/>
+                    <span class="field-validation-error" data-valmsg-for="EmployeeCount" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="EstablishedOn" class="rl-label">@Admin.EstablishedOn</label>
+                    <input type="text" id="EstablishedOn" name="EstablishedOn" placeholder="@Admin.ExampleDate"  class="tooltipster" title="@Admin.ItShowsCompanyEstablishDate" data-val="true" data-val-date="RegularDate"/>
+                    <span class="field-validation-error" data-valmsg-for="EstablishedOn" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Description" class="rl-label">@Admin.Description</label>
+                    <input type="text" id="Description" name="Description" placeholder="@Admin.Description" data-val="true" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250"/>
+                    <span class="field-validation-error" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <input type="hidden" id="Address_Longitude" name="Address.Longitude" value="@Model.Address.Longitude.ZeroIfNull()"/>
+                    <input type="hidden" id="Address_Latitude" name="Address.Latitude" value="@Model.Address.Latitude.ZeroIfNull()"/>
+                    <span class="field-validation-error" data-valmsg-for="Address.Latitude" data-valmsg-replace="true"></span>
+                    <div id="ProductMap" style="height: 400px; width: 100%;"></div>
+                </div>
+                <div class="input-container"></div>
+            </form>*@
+        </div>
+    </div>
+@section scripts {
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDsVAy5ATsGkBA11NPQWSakpy0BiNuBPTc&callback=setCompanyNewMap'></script>
+}

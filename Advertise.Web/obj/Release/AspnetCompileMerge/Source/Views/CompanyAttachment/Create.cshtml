@@ -1,0 +1,39 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyAttachment.CompanyAttachmentCreateViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = "ایجاد فایل";
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>ایجاد فایل</h4>
+            <button form="newCompanyAttachment" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+        </div>
+        <div class="form-box-item">
+            <form id="newCompanyAttachment" action="@Url.Action(MVC.CompanyAttachment.Create())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <div class="input-container half">
+                    <label for="Title" class="rl-label" >@Admin.Title</label>
+                    <input type="text" id="Title" name="Title" placeholder="@Admin.Title" class="tooltipster" title="@Admin.ItShowsImageName" data-val="true" data-val-required="@Admin.RequiredImageTitle" data-val-length="@Admin.MessageLengthTitle" data-val-length-max="30" data-val-length-min="6"/>
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Order" class="rl-label" >اولویت</label>
+                    <input type="text" id="Order" name="Order" placeholder="الویت" class="tooltipster" title="@Admin.ItShowsImageName"/>
+                    <span class="field-validation-error" data-valmsg-for="Order" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container">
+                    <label for="files" class="rl-label tooltipster" title="@Admin.UploadingPhoto">@Admin.UploadingPhoto</label>
+                    @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                    <div name="files" id="files" data-action="uploaderCompanyAttachment" data-event="load"></div>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>
+
+

@@ -1,0 +1,38 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.CompanyVideo.CompanyVideoViewModel
+<div class="product-item column">
+    <div class="product-preview-actions">
+        <figure class="product-preview-image">
+            @if (Model.FileName != null)
+            {
+                <img src="@FileConst.VideosWebPath.RemoveTilde().PlusSlash().PlusWord(Model.FileName)" alt="product-Video" style="width: 100%; height: 200px; display: block;" data-target="#myModal" data-container="#imgContainer" onclick="loadVideos(this)" />
+            }
+            else
+            {
+                <img src="@FileConst.NoPreview.RemoveTilde()" alt="product-Video">
+            }
+        </figure>
+    </div>
+</div>
+<script type="text/javascript">
+    function loadVideos(tag) {
+        $(tag).attr('data-toggle', 'modal');
+        var container = $(tag).data('container');
+        var src = $(tag).attr('src');
+        $(container).empty();
+        $(container).append('<img src="' + src + '"/>');
+    }
+</script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="imgContainer">
+            </div>
+        </div>
+    </div>
+</div>

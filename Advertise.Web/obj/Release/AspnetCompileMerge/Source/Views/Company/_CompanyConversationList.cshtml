@@ -1,0 +1,17 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+
+@{
+    Layout = null;
+}
+
+@model Advertise.Core.Models.CompanyConversation.CompanyConversationListViewModel
+
+    @Html.Partial(MVC.CompanyConversation.Views._ListMore, Model)
+<h3>سوال خود را بپرسید...</h3>
+<br />
+<div class="comment-wrap comment-reply">
+    <textarea id="commentBody" name="commentBody" placeholder="سوال" class="tooltipster" title="سوال" data-val="true" data-val-required="@Admin.RequiredExplain"></textarea>
+    <span class="field-validation-error" data-valmsg-for="commentBody" data-valmsg-replace="true"></span>
+    <button id="btnSendConversation" class="button primary" data-action="sendConversation" data-event="click">ثبت سوال</button>
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,85 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.Categories
+@model Advertise.Core.Models.Home.MainMenuViewModel
+<div class="main-menu-wrap">
+    <div class="menu-bar">
+        <nav>
+            <ul class="main-menu">
+                <li class="menu-item" data-action="mainMenuCollapse" data-event="mouseleave">
+                    <a href="javascript:void(0)">@Admin.Categories  <i class="fa fa-chevron-down"></i></a>
+                    <ul class="main-menu-categories">
+                        @foreach (var categoryL1 in Model.Categories.GetSubLevelOneByAlias("Category-All"))
+                        {
+                            <li class="sub-cat-first" data-action="mainMenuExpand" data-event="mouseenter">
+                                <a href="@Url.Action(MVC.Category.Detail(categoryL1.Alias)).AddSlug(categoryL1.MetaTitle)">
+                                    <span>@categoryL1.Title</span>
+                                    @if (categoryL1.HasChild == true)
+                                    {
+                                        <i class="fa fa-chevron-left"></i>
+                                    }
+                                </a>
+                            </li>
+                            if (categoryL1.HasChild == true)
+                            {
+                                <li class="sub-cat-expand">
+                                    <ul class="main-sub-category">
+                                        @foreach (var categoryL2 in Model.Categories.GetSubLevelOneByAlias(categoryL1.Alias))
+                                        {
+                                            <li class="main-sub-categories">
+                                                <a href="@Url.Action(MVC.Category.Detail(categoryL2.Alias)).AddSlug(categoryL2.MetaTitle)">
+                                                    <span class="sub-category-title">@categoryL2.Title</span>
+                                                </a>
+                                                @if (categoryL2.HasChild == true)
+                                                {
+                                                    <ul class="sub-sub-category">
+                                                        @foreach (var categoryL3 in Model.Categories.GetSubLevelOneByAlias(categoryL2.Alias))
+                                                        {
+                                                            <li class="sub-sub-categories">
+                                                                <a href="@Url.Action(MVC.Category.Detail(categoryL3.Alias)).AddSlug(categoryL3.MetaTitle)">
+                                                                    @if (categoryL3.HasChild == true)
+                                                                    {
+                                                                        <i class="fa fa-chevron-left"></i>
+                                                                    }
+                                                                    <span class="sub-category-name">
+                                                                        @categoryL3.Title
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <div id="MenusShadow"></div>
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action(MVC.Page.ContactUs())"><i class="fa fa-phone fa-flip-horizontal"></i>@Admin.ContactUs</a>
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action(MVC.Page.Policy())"><i class="fa fa-legal fa-flip-horizontal"></i>@Admin.RulesAndRegulations</a>
+                </li>
+                <li class="menu-item">
+                    <a href="@Url.Action(MVC.Page.About())"><i class="fa fa-info-circle"></i>@Admin.AboutUs</a>
+                </li>
+            </ul>
+            <ul class="nav-search-form">
+                <li class="search-area-li">
+                    <input type="text" class="header-search-area" name="search" id="navSearchProduct" placeholder="@Admin.SearchProductsOrServices" data-action="changeSearchTerm" data-event="keyPress">
+                </li>
+                <li class="search-icon-li">
+                    <a id="navSearchProductOnLanding" href="@Url.Action(MVC.Product.Search())" data-action="searchOnLandingPage" data-event="click">
+                        <div class="main-menu-search-wrapper">
+                            <i class="main-menu-search-icon fa fa-search"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.User.UserListViewModel
+@foreach (var item in @Model.Users)
+{
+    @Html.Partial(MVC.User.Views._Item, item)
+}

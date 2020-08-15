@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Complaint.ComplaintListViewModel
+@foreach (var item in @Model.Complaints)
+{
+    @Html.Partial(MVC.Complaint.Views._Item,item)
+}

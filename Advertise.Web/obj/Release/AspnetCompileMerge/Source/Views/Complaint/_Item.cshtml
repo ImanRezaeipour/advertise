@@ -1,0 +1,84 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.Complaint.ComplaintViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items complaint-items">
+    <div class="product-item column landing-column">
+        <div class="part-nine">
+            @if (User.IsInRole(Auth.CanDeleteComplaint))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (User.IsInRole(Auth.CanDeleteComplaint))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                <a href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="modal">
+                    <div class="item-preview-image">
+                        <img src="@FileConst.Complaint" alt="@Model.Title.PlusWord(" ").PlusWord(Admin.Complaints)">
+                    </div>
+                </a>
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="modal">
+            <p class="novinak-title text-header">@Model.Title</p>
+        </a>
+        <p class="part-one empty-one"></p>
+        <p class="part-two"><i class="fa fa-calendar-check-o"></i> <span>@Admin.InsertDate.PlusWord(":")</span></p>
+        <p class="part-three">@Model.CreatedOn</p>
+        <hr class="line-separator item-footer">
+        <div class="part-four">
+            <figure class="user-avatar small">
+                @if (Model.UserAvatar != null)
+                {
+                    <a href="@Url.Action(MVC.User.Detail(Model.UserUserName))">
+                        <div class="novinak-owner-image">
+                            <img src="@FileConst.ImagesWebPath.PlusWord(Model.UserAvatar)" alt="@Model.UserFullName.PlusWord(" ").PlusWord(Admin.User)">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="novinak-owner-image">
+                        <img src="@FileConst.NoAvatarPth" alt="user without logo">
+                    </div>
+                }
+            </figure>
+            <a href="@Url.Action(MVC.User.Detail(Model.UserUserName))" class="tooltipster">
+                <p class="part-five text-header tiny">@Model.UserFullName</p>
+            </a>
+        </div>
+        <div class="bg-shadow"></div>
+        <div class="slider-shadow">
+            <div class="slide-file-preview">
+                <div class="inner-preview">
+                    <h3 class="modal-item-title">@Model.Title</h3>
+                    <h5 class="modal-item-content">@Model.Body</h5>
+                    <div class="slide-files-actions">
+                        <div class="slide-action-wrapper slide-file-close" data-action="closeShadow" data-event="click">
+                            <i class="fa fa-times"></i>
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>

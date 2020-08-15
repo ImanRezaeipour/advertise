@@ -1,0 +1,112 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@model Advertise.Core.Models.Receipt.ReceiptViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.CompletePurchaseProcess;
+}
+<div class="profile-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.ProfileEdit</h4>
+        <button type="submit" form="editInfo" class="button primary">
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Bag.MyItemlist())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item profile-form">
+        <form id="editInfo" action="@Url.Action(MVC.Receipt.CheckOut())" method="post">
+           <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+           <div class="input-container half">
+               <input type="hidden" id="Address_Longitude" name="Address.Longitude" value="@Model.Address.Longitude.ZeroIfNull()"/>
+               <input type="hidden" id="Address_Latitude" name="Address.Latitude" value="@Model.Address.Latitude.ZeroIfNull()"/>
+                <div id="receiptMap" class="my-bag-info-edit"></div>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_City_ParentId" class="rl-label tooltipster" title="@Admin.ItShowsProvince">@Admin.Province</label>
+                <input type="hidden" name="ProvinceId" id="ProvinceId" value="@Model.Address.City.ParentId"/>
+                <select id="Address_City_ParentId" name="Address.City.ParentId" data-val="true" data-val-required="@Admin.RequiredProvince" data-action="selectProvince" data-event="change">
+                    <option value="" selected disabled>-- @Admin.Choose --</option>
+                    @foreach (var province in Model.AddressProvince)
+                    {
+                        <option value="@province.Value" @if(province.Value == Model.Address.City.ParentId.ToString()) {<text>selected</text>}>@province.Text</option>
+                    }
+                </select> 
+                <span class="field-validation-error" data-valmsg-for="Address.City.ParentId" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_City_Id" class="rl-label tooltipster" title="@Admin.ItShowsCity">@Admin.City</label>
+                <input type="hidden" name="CityId" id="CityId" value="@Model.Address.City.Id"/>
+                <select id="Address_City_Id" name="Address.City.Id" data-action="selectCity" data-event="load" data-val="true" data-val-required="@Admin.RequiredCity">
+                    <option value="">-- @Admin.Choose --</option>
+                </select>
+                <span class="field-validation-error" data-valmsg-for="Address.City.Id" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half address-area">
+                <label for="Address.Extra" class="rl-label">@Admin.Address</label>
+                <textarea rows="2" id="Address_Extra" name="Address.Extra" class="info-address-textarea tooltipster" value="" title="@Admin.ItShowsAddress" placeholder="@Admin.Address"  data-val="true" data-val-required="@Admin.RequiredAddress">
+                    @Model.Address.Extra    
+                </textarea>
+                <span class="field-validation-error" data-valmsg-for="Address.Extra" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_PostalCode" class="rl-label">@Admin.PostalCode</label>
+                <input type="text" id="Address_PostalCode" name="Address.PostalCode" placeholder="@Admin.ExamplePostalCode" value="@Model.Address.PostalCode" class="tooltipster" title="@Admin.ItShowsPostalCode" data-val="true" data-val-required="@Admin.RequiredPostalCode" data-val-length="@Admin.MessageLengthPostalCode" data-val-length-min="10" data-val-length-max="10" data-pattern="numeric"/>
+                <span class="field-validation-error" data-valmsg-for="Address.PostalCode" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="FirstName" class="rl-label">@Admin.FirstName</label>
+                <input type="text" id="FirstName" name="FirstName" placeholder="@Admin.FirstName" value="@Model.FirstName" class="tooltipster" title="@Admin.ItShowsFirstName"  data-val="true" data-val-required="@Admin.RequiredFirstName" />
+                <span class="field-validation-error" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="LastName" class="rl-label">@Admin.LastName</label>
+                <input type="text" id="LastName" name="LastName" placeholder="@Admin.LastName" value="@Model.LastName" class="tooltipster" title="@Admin.ItShowsLastName"  data-val="true" data-val-required="@Admin.RequiredLastName" />
+                <span class="field-validation-error" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="NationalCode" class="rl-label">@Admin.NationalCode</label>
+                <input type="text" id="NationalCode" name="NationalCode" placeholder="@Admin.ExampleNationalCode" value="@Model.NationalCode" class="tooltipster" title="@Admin.ItShowsNationalCode"  data-val="true" data-val-required="@Admin.RequiredNationalCode" data-val-length="@Admin.MessageLengthNationalCode" data-val-length-min="10" data-val-length-max="10" data-pattern="numeric"/>
+                <span class="field-validation-error" data-valmsg-for="NationalCode" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="HomeNumber" class="rl-label">@Admin.Phone</label>
+                <input type="text" id="HomeNumber" name="HomeNumber" placeholder="@Admin.ExamplePhoneNumber" value="@Model.HomeNumber" class="tooltipster" title="@Admin.ItShowsPhoneNumber"  data-val="true" data-val-required="@Admin.RequiredPhoneNumber" data-val-length="@Admin.MessageLengthPhoneNumber" data-val-length-min="11" data-val-length-max="11" data-pattern="numeric"/>
+                <span class="field-validation-error" data-valmsg-for="HomeNumber" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="PhoneNumber" class="rl-label">@Admin.Mobile</label>
+                <input type="text" id="PhoneNumber" name="PhoneNumber" placeholder="@Admin.ExampleMobileNumber" value="@Model.PhoneNumber" class="tooltipster" title="@Admin.ItShowsMobileNumber"  data-val="true" data-val-required="@Admin.RequiredMobileNumber" data-val-length="@Admin.MessageLengthMobileNumber" data-val-length-min="11" data-val-length-max="11" data-pattern="numeric"/>
+                <span class="field-validation-error" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="TransfereeName" class="rl-label">@Admin.TransfereeName.PlusWord(" (").PlusWord(Admin.Optional).PlusWord(")")</label>
+                <input type="text" id="TransfereeName" name="TransfereeName" value="@Model.TransfereeName" placeholder="@Admin.TransfereeName"  class="tooltipster" title="@Admin.ItShowsTransfereeName"/>
+                <span class="field-validation-error" data-valmsg-for="TransfereeName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container payment-wrapper">
+                <label class="rl-label tooltipster" title="@Admin.ItShowsPaymentType">@Admin.PaymentType</label>
+                <ul class="payment-holder">
+                    <li class="payment-label-list">
+                        <label for="paymentType1" class="payment-label"><input type="radio" id="paymentType1" name="Payment" value="1" checked> @Admin.OnlinePayment</label>
+                    </li>
+                    <li class="payment-label-list">
+                        <label for="paymentType2" class="payment-label"><input type="radio" id="paymentType2" name="Payment" value="2"> @Admin.PayInPerson</label>
+                    </li>
+                    <li class="payment-label-list">
+                        <label for="paymentType3" class="payment-label"><input type="radio" id="paymentType3" name="Payment" value="3"> @Admin.PaymentViaATM</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearboth"></div>
+        </form>
+    </div>
+</div>
+@section scripts {
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDsVAy5ATsGkBA11NPQWSakpy0BiNuBPTc&callback=loadMapReceipt'></script>
+}

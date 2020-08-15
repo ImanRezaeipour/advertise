@@ -1,0 +1,14 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyFollow.CompanyFollowListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.Followers;
+}
+<div class="content right">
+    <div class="headline simple primary">
+        <h4>(@Model.SearchRequest.TotalCount) @Admin.ListMyCompanyFollowers</h4>
+    </div>
+    <div class="follow-list">
+        @Html.Partial(MVC.CompanyFollow.Views._FollowerListMore, Model)
+    </div>
+</div>

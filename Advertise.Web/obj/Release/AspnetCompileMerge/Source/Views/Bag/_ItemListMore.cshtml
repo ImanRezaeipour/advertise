@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Bag.BagListViewModel
+@foreach (var bag in Model.Bags)
+{
+    @Html.Partial(MVC.Bag.Views._Item, bag)
+}

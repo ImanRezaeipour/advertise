@@ -1,0 +1,46 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyReview.CompanyReviewCreateViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CreateReview;
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.CreateReview</h4>
+            <button form="newCompanyReview" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+            <a class="button primary" href="@Url.Action(MVC.CompanyReview.List())">
+                <i class="fa fa-undo"></i>
+                <span>@Admin.Return</span>
+            </a>
+        </div>
+        <div class="form-box-item">
+            <form id="newCompanyReview" action="@Url.Action(MVC.CompanyReview.Create())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <div class="input-container half">
+                    <label for="CompanyId" class="rl-label tooltipster" title="@Admin.ItShowsCompanyName">@Admin.BrandName</label>
+                    <select name="CompanyId" id="CompanyId">
+                        <option disabled="disabled">@Admin.BrandName</option>
+                        @foreach (var companylist in Model.CompanyList)
+                        {
+                            <option value="@companylist.Value">@companylist.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="input-container half">
+                    <label for="Title" class="rl-label tooltipster" title="عنوان را وارد کنید">عنوان</label>
+                    <input type="text" id="Title" name="Title" data-val="true" data-val-required="عنوان اجباری است" />
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container">
+                    <label for="Body" class="rl-label tooltipster" title="@Admin.ItShowsReviewText">@Admin.ReviewText</label>
+                    <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                    <textarea id="Body" name="Body" data-action="fillEditorCompanyReview" data-event="load" data-val="true" data-val-required="@Admin.RequiredReview"></textarea>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

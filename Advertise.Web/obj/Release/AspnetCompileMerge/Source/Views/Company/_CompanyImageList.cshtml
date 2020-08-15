@@ -1,0 +1,29 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.CompanyImage.CompanyImageListViewModel
+<div class="headline buttons primary">
+    <h4>
+        <i class="fa fa-image"></i>
+        @Admin.LastImages
+    </h4>
+    <a href="author-profile-items.html" class="button mid-short dark-light">
+        <span>@Admin.ShowAllItem</span>
+    </a>
+</div>
+<div class="product-list grid column3-4-wrap">
+    @Html.Partial(MVC.CompanyImage.Views._ListMore, Model)
+</div>
+<div class="clearfix"></div>
+<div class="pager tertiary">
+    <button class="btn btn-info btn-block btn-sm"  type="button" data-page="2" data-json='{}'data-action="justPagingCompany" data-event="load" >
+        <i class="fa fa-chevron-circle-down"></i>
+        <span>@Admin.More</span>
+    </button>
+</div>
+<div id="CompanyImageList" align="center">
+</div>
+<div id="progress" align="center" style="display: none">
+    <img src="~/Files/Assets/loading.gif" alt="@Admin.Loading" />
+</div>

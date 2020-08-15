@@ -1,0 +1,27 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Complaint.ComplaintDetailViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.RegisterComplaints;
+}
+
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.RegisterComplaints</h4>
+        <a class="button primary" href="@Url.Action(MVC.Complaint.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="input-container">
+        <label for="Title" class="rl-label tooltipster" title="@Admin.ItShowsComplaintTitle">@Admin.Title</label>
+        <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+        <input type="text" id="Title" rows="1" cols="1" name="Title" style="height: 50px; width: 400px; " value="@Model.Title" data-val="true" data-val-required="@Admin.RequiredTitle2" />
+    </div>
+    <div class="input-container"></div>
+    <div class="input-container">
+        <label for="Body" class="rl-label tooltipster" title="@Admin.ItShowsComplaintText">@Admin.Explanations</label>
+        <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+        <input type="text" id="Body" value="@Model.Body" rows="5" cols="20" style="height: 200px; width: 400px;" name="Body" data-val="true" data-val-required="@Admin.RequiredExplain" />
+    </div>
+</div>

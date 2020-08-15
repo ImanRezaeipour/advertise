@@ -1,0 +1,77 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Microsoft.AspNet.Identity
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst
+@model Advertise.Core.Models.CompanyAttachment.CompanyAttachmentEditViewModel
+@{
+    ViewBag.Title = Admin.CompanyEdit;
+
+    var x = "true";
+    if (HttpContext.Current.Request.Cookies.Get(HttpContext.Current.User.Identity.GetUserId() + "_CompanyAttachment_Edit_IsMyEdit") != null)
+    {
+        x = HttpContext.Current.Request.Cookies.Get(HttpContext.Current.User.Identity.GetUserId() + "_CompanyAttachment_Edit_IsMyEdit").Value;
+    }
+    if (x != "true")
+    {
+        Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    }
+    else
+    {
+        Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    }
+    ViewBag.Title ="ویرایش فایل";
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.ImageEdit</h4>
+            @if (User.IsInRole(Auth.CanChangeStateCompanyAttachment))
+            {
+                <button form="editCompanyAttachment" type="submit" class="button primary disabled-btn-link" disabled="disabled"  onclick="javascript: form.action = '@Url.Action(MVC.CompanyAttachment.EditApprove())';">
+                    <i class="fa fa-check-circle"></i>
+                    <span>@Admin.OkAndClose</span>
+                </button>
+                <button form="editCompany" type="submit" class="button primary disabled-btn-link" disabled="disabled" onclick="javascript: form.action = '@Url.Action(MVC.CompanyAttachment.EditReject())';">
+                    <i class="fa fa-times-circle"></i>
+                    <span>@Admin.CancelAndClose</span>
+                </button>
+                <a class="button primary" href="@Url.Action(MVC.CompanyAttachment.List())">
+                    <i class="fa fa-undo"></i>
+                    <span>@Admin.Return</span>
+                </a>
+            }
+            else
+            {
+                <button form="editCompanyAttachment" type="submit" class="button primary disabled-btn-link" disabled="disabled"  onclick="javascript: form.action = '@Url.Action(MVC.CompanyAttachment.Edit())';">
+                    <i class="fa fa-save"></i>
+                    <span>@Admin.Save</span>
+                </button>
+                <a class="button primary" href="@Url.Action(MVC.CompanyAttachment.ListMe())">
+                    <i class="fa fa-undo"></i>
+                    <span>@Admin.Return</span>
+                </a>
+            }
+        </div>
+        <div class="form-box-item">
+            <form id="editCompanyAttachment" action="" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                @*<input type="hidden" id="comanyImageId" name="comanyImageId" value="@Model.Id"/>*@
+                <div class="input-container half">
+                    <label for="Title" class="rl-label">@Admin.Title</label>
+                    <input type="text" id="Title" name="Title" value="@Model.Title"  placeholder="@Admin.Title" class="tooltipster" title="@Admin.ItShowsImageName" data-val="true" data-val-required="@Admin.RequiredTitle" data-val-length="@Admin.MessageLengthTitle" data-val-length-max="30" data-val-length-min="2"/>
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Order" class="rl-label" >اولویت</label>
+                    <input type="text" id="Order" name="Order" value="@Model.Order" placeholder="الویت" class="tooltipster" title="@Admin.ItShowsImageName"/>
+                    <span class="field-validation-error" data-valmsg-for="Order" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container">
+                    <label for="files" class="rl-label tooltipster" title="@Admin.UploadingPhoto">@Admin.UploadingPhoto</label>
+                    @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                    <div name="files" id="files" data-action="uploaderCompanyAttachment" data-event="load" data-param="edit"></div>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

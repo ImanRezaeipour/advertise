@@ -1,0 +1,18 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.CompanyReview.CompanyReviewListViewModel
+<div class="headline buttons primary">
+    <h4>
+        <i class="fa fa-archive"></i>
+        @Admin.LastReview
+    </h4>
+    <a href="author-profile-items.html" class="button mid-short dark-light">
+        <span>@Admin.ShowAllItem</span>
+    </a>
+</div>
+<div class="product-list grid column3-4-wrap">
+    @Html.Partial(MVC.CompanyReview.Views._ListMore, Model)
+</div>
+<div class="clearfix"></div>

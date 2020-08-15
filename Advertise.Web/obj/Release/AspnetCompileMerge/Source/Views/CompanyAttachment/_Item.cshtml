@@ -1,0 +1,150 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Advertise.Service.Services.Companies
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.CompanyAttachment.CompanyAttachmentViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items @if (ViewBag.IsMyList != true) {<text>company-attachment-items</text>} else {<text>my-company-attachment-items</text>}">
+    <div class="product-item column landing-column">
+        <div class="part-nine">
+            @if (User.IsInRole(Auth.CanEditCompanyAttachment) || User.IsInRole(Auth.CanDeleteCompanyAttachment) || User.IsInRole(Auth.CanChangeStateCompanyAttachment))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (Model.Id.CanEditThisCompanyAttachment())
+                        {
+                            <li>
+                                <a href="@Url.Action(MVC.CompanyAttachment.Edit(Model.Id))">
+                                    <span>@Admin.Edit</span>
+                                    <i class="fa fa-pencil fa-flip-horizontal"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanDeleteCompanyAttachment))
+                        { 
+                            <li>
+                                <a href="#" data-action="removeItem" data-event="click" data-param="CompanyAttachment" data-param-id="">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanChangeStateCompanyAttachment))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Approve</span>
+                                    <i class="fa fa-check-circle"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanChangeStateCompanyAttachment))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Ignore</span>
+                                    <i class="fa fa-times-circle"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <span class="part-seven"><span>@Model.AttachmentFiles.Count()</span> فایل</span>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                <a href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="gallery">
+                    <div class="item-preview-image">
+                        <img src="@FileConst.ImagesWebPath" alt="@Model.Title.PlusWord(" ").PlusWord(Admin.GalleryImages)">
+                    </div>
+                </a>
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="gallery">
+            <p class="novinak-title text-header">@Model.Title</p>
+        </a>
+        <a>
+            <p class="part-one">@Admin.Priority.PlusWord(": ").PlusWord(Model.Order.ToString())</p>
+        </a>
+        <p class="part-two pre-price"><i class="fa fa-calendar-check-o"></i> <span>@Admin.InsertDate.PlusWord(":")</span></p>
+        <p class="part-three">@Model.CreatedOn</p>
+        @if (ViewBag.IsMyList != true)
+        {
+        <hr class="line-separator item-footer">
+        <div class="part-four">
+            <figure class="user-avatar small">
+                @if (Model.CompanyLogoFileName != null)
+                {
+                    <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias, Model.CompanyTitle)).AddSlug(Model.CompanyTitle)">
+                        <div class="novinak-owner-image">
+                            <img src="@FileConst.ImagesWebPath.PlusWord(Model.CompanyLogoFileName)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.CompanyTitle)">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="novinak-owner-image">
+                        <img src="@FileConst.NoLogo" alt="store without logo">
+                    </div>
+                }
+            </figure>
+            <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias, Model.CompanyTitle)).AddSlug(Model.CompanyTitle)" class="tooltipster" title="@Model.CompanyTitle">
+                <p class="part-five text-header tiny">@Model.CompanyTitle</p>
+            </a>
+        </div>
+        }
+        <div class="bg-shadow"></div>
+        <div class="slider-shadow">
+            <div class="slide-files-wrapper" data-count="@Model.AttachmentFiles.Count()">
+                <input type="hidden" value="@FileConst.ImagesWebPath" data-iteration="0">
+                @for (var i = 0; i < Model.AttachmentFiles.Count(); i++)
+                {
+                    <input type="hidden" value="@Model.AttachmentFiles[i].FileName" data-iteration="@(++i)">
+                }
+            </div>
+            <div class="slide-file-preview">
+                <div class="slide-file-count-bg"></div>
+                <div class="slide-file-count">
+                    <span class="slide-file-total"></span>
+                    <span class="slide-file-number"></span>
+                </div>
+                <figure>
+                    <img src="@FileConst.NoPreview">
+                </figure>
+                <div class="slide-files-actions">
+                    <div class="slide-action-wrapper slide-file-right" data-action="rightGalleryFiles" data-event="click">
+                        <i class="fa fa-chevron-right"></i>
+                        <i class="fa fa-chevron-right"></i>
+                    </div>
+                    <div class="slide-action-wrapper slide-file-left" data-action="leftGalleryFiles" data-event="click">
+                        <i class="fa fa-chevron-left"></i>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <div class="slide-action-wrapper slide-file-close" data-action="closeShadow" data-event="click">
+                        <i class="fa fa-times"></i>
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <div class="slide-action-wrapper slide-file-save">
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-floppy-o"></i>
+                            <i class="fa fa-floppy-o"></i>
+                        </a>
+                    </div>
+                    @if (User.IsInRole(Auth.CanEditCompanyAttachment) || User.IsInRole(Auth.CanMyEditCompanyAttachment))
+                    {
+                        <div class="slide-action-wrapper slide-file-delete">
+                            <i class="fa fa-trash"></i>
+                            <i class="fa fa-trash"></i>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>

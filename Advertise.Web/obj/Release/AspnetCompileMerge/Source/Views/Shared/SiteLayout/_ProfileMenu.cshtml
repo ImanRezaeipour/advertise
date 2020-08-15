@@ -1,0 +1,298 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Home.ProfileMenuViewModel
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@if (User.IsInRole(Auth.CanViewProfile))
+{
+    <a href="" class="profile-top-menu-link">
+        <span class="fa fa-user-circle"></span>
+        <span>@Admin.MyProfile</span>
+    </a>
+}
+<ul class="dropdown hover-effect interactive profile-sides">
+    @if (User.IsInRole(Auth.CanManageCompany) && User.IsInRole(Auth.CanMyEditCompany))
+    {
+        <li class="dropdown-item interactive">
+            <a href="#">
+                <span class="sl-icon fa fa-briefcase"></span>
+                <span>@Admin.ManageCompany</span>
+                <span class="fa fa-angle-down"></span>
+            </a>
+            <ul class="inner-dropdown hover-effect meta-menu">
+                @if (User.IsInRole(Auth.CanMyEditCompany))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Company.EditMe())">
+                            <i class="fa fa-bank"></i>
+                            <span>@Admin.MyCompany</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeCompanyAttachment))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyAttachment.ListMe())">
+                            <i class="fa fa-paperclip"></i>
+                            <span>@Admin.Files</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeCompanyImage))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyImage.ListMe())">
+                            <i class="fa fa-image"></i>
+                            <span>@Admin.GalleryImages</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeCompanyVideo))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyVideo.ListMe())">
+                            <i class="fa fa-video-camera fa-flip-horizontal"></i>
+                            <span>@Admin.GalleryVideos</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanMyListQustionCompany))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyQuestion.ListMe())">
+                            <i class="fa fa-comments-o"></i>
+                            <span>@Admin.QAs</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeConversation))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyConversation.ListMe())">
+                            <i class="fa fa-comments"></i>
+                            <span>@Admin.MyConversations</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanMyListCompanySocial))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanySocial.EditMe())">
+                            <i class="fa fa-sitemap"></i>
+                            <span>@Admin.SocialNetworks</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeCompanyFollower))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyFollow.MyFollowerList())">
+                            <i class="fa fa-users"></i>
+                            <span>@Admin.Followers</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanViewProfile))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Company.Near())">
+                            <i class="fa fa-map-marker"></i>
+                            <span>@Admin.BusinessesAroundMe</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+    @if (User.IsInRole(Auth.CanManageProduct) && (Model.Alias != null))
+    {
+        <li class="dropdown-item interactive">
+            <a href="#">
+                <span class="sl-icon fa fa-dropbox"></span>
+                <span>@Admin.ManageProducts</span>
+                <span class="fa fa-angle-down"></span>
+            </a>
+            <ul class="inner-dropdown hover-effect meta-menu">
+                @if (User.IsInRole(Auth.CanViewListMeProduct))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Product.ListMe())">
+                            <i class="fa fa-cube"></i>
+                            <span>@Admin.ListOfAll</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeExistProduct))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Product.ListMe())">
+                            <i class="fa fa-check-square"></i>
+                            <span>@Admin.Stock</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeProductLiker))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.ProductLike.LikerListMe())">
+                            <i class="fa fa-heart"></i>
+                            <span>@Admin.Likers</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanViewMyListProductComment))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.ProductComment.ListMe())">
+                            <i class="fa fa-commenting-o"></i>
+                            <span>@Admin.Comments</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+    @if (User.IsInRole(Auth.CanListMyProductLike) || User.IsInRole(Auth.CanTogglecategoryFollow) || User.IsInRole(Auth.CanMyItemListCompanyFollow) || User.IsInRole(Auth.CanListMeNotification))
+    {
+        <li class="dropdown-item interactive">
+            <a href="#">
+                <span class="sl-icon fa fa-heartbeat"></span>
+                <span>@Admin.ManageActivities</span>
+                <span class="fa fa-angle-down"></span>
+            </a>
+            <ul class="inner-dropdown hover-effect meta-menu">
+                @if (User.IsInRole(Auth.CanListMyProductLike))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.ProductLike.LikeListMe())">
+                            <i class="fa fa-heart"></i>
+                            <span>@Admin.MyLikes</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanTogglecategoryFollow))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CategoryFollow.MyFollowList())">
+                            <i class="fa fa-th"></i>
+                            <span>@Admin.MyFollowingCategories</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanMyItemListCompanyFollow))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.CompanyFollow.MyFollowList())">
+                            <i class="fa fa-bank"></i>
+                            <span>@Admin.MyFollowingCompanies</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeNotification))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Notification.ListMe())">
+                            <i class="fa fa-sticky-note fa-flip-horizontal"></i>
+                            <span>@Admin.Notifications</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+    @if (User.IsInRole(Auth.CanManageTransaction))
+    {
+        <li class="dropdown-item interactive">
+            <a href="#">
+                <span class="sl-icon fa fa-money"></span>
+                <span>@Admin.ManageTransactions</span>
+                <span class="fa fa-angle-down"></span>
+            </a>
+            <ul class="inner-dropdown hover-effect meta-menu">
+                @if (User.IsInRole(Auth.CanListMeBag))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Bag.MyItemlist())">
+                            <i class="fa fa-cart-arrow-down fa-flip-horizontal"></i>
+                            <span>@Admin.MyCart</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeReceipt))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Receipt.ListMe())">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span>@Admin.PreviousPurchases</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanViewMySaleStatistics))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.Company.SaleStatisticsMe())">
+                            <i class="fa fa-line-chart fa-flip-horizontal"></i>
+                            <span>@Admin.SalesStatistics</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanListMeAccountNumber))
+                {
+                    <li class="dropdown-item">
+                        <a href="#">
+                            <i class="fa fa-credit-card-alt"></i>
+                            <span>@Admin.AccountNumbers</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanViewMyBudget))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.UserBudget.Detail())">
+                            <i class="fa fa-area-chart fa-flip-horizontal"></i>
+                            <span>@Admin.MyBudget</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+    @if (User.IsInRole(Auth.CanEditMeUserMetaInfo) || User.IsInRole(Auth.CanChangePassword))
+    {
+        <li class="dropdown-item interactive">
+            <a href="#">
+                <span class="sl-icon fa fa-gear"></span>
+                <span>@Admin.Settings</span>
+                <span class="fa fa-angle-down"></span>
+            </a>
+            <ul class="inner-dropdown hover-effect meta-menu">
+                @if (User.IsInRole(Auth.CanEditMeUserMetaInfo))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.User.EditMe())">
+                            <i class="fa fa-user"></i>
+                            <span>@Admin.Account</span>
+                        </a>
+                    </li>
+                }
+                @if (User.IsInRole(Auth.CanChangePassword))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.User.ChangePassword())">
+                            <i class="fa fa-asterisk"></i>
+                            <span>@Admin.ChangePassWord</span>
+                        </a>
+                    </li>
+                }
+
+                @if (User.IsInRole(Auth.CanEditMeUserSetting))
+                {
+                    <li class="dropdown-item">
+                        <a href="@Url.Action(MVC.UserSetting.EditMe())">
+                            <i class="fa fa-asterisk"></i>
+                            <span>تنظیمات کاربری</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

@@ -1,0 +1,33 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Complaint.ComplaintCreateViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.Complaints;
+}
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.Complaints</h4>
+        <button form="newComplaint" type="submit" class="button primary">
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+      </div>
+    <div class="form-box-item">
+        <p class="complaint-p"><i class="fa fa-exclamation-circle page-red"></i> هرگونه شکایت مرتبط با سامانه را در این قسمت مطرح نمایید. تیم نویناک تصمین می‌نماید که به این شکایات رسیدگی نموده و پاسخ آن را در اولین فرصت به آگاهی شما برساند.</p>
+        <form id="newComplaint" action="@Url.Action(MVC.Complaint.Create())" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="input-container">
+                <label for="Title" class="rl-label tooltipster" title="@Admin.ItShowsComplaintTitle">@Admin.Title</label>
+                <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                <input type="text" id="Title"  name="Title" data-val="true" data-val-required="@Admin.RequiredTitle2"></>
+            </div>
+            <div class="input-container"></div>
+            <div class="input-container">
+                <label for="Body" class="rl-label tooltipster" title="@Admin.ItShowsComplaintText">@Admin.ComplaintExplanation</label>
+                <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                <textarea id="Body" name="Body" class="complaint-textarea" rows="10" cols="30" data-val="true" data-val-required="@Admin.RequiredExplain"></textarea>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.CompanyQuestion.CompanyQuestionListViewModel
+    @foreach (var item in @Model.CompanyQuestions)
+    {
+        @Html.Partial(MVC.CompanyQuestion.Views._Item,item)
+    }

@@ -1,0 +1,150 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    ViewBag.Title = Admin.SiteTitle;
+    ViewBag.Keywords = "سامانه تجاری تبلیغاتی،نویناک،فروشگاه،فروش،خرید،مشاغل،خدمات،آنلاین،آرایشی،لباس،لپتاپ،موبایل،حقوق،پزشکی";
+    ViewBag.Description = "سامانه تجاری تبلیغاتی نویناک بازار خرید آنلاین،فروش آنلاین و ارائه خدمات آنلاین مشاغل خدماتی است و در زمینه آرایشی،لباس،لپتاپ،موبایل،حقوق،پزشکی و... فعالیت دارد";
+}
+@section og{
+    <meta property="og:image" content="@FileConst.LogoMobilePth">
+}
+@model Advertise.Core.Models.Home.LandingPageViewModel
+@using Advertise.Service.Services.File
+<div id="product-sideshow-wrap">
+    <div id="product-sideshow">
+        <div class="landing-wrapper">
+            <div data-action="loadSliderCircle" data-event="load"></div>
+            <div class="product-showcase slide-case">
+                <div class="landing-items-wrapper landing-items-disp">
+                    <div class="landing-slider">
+                        <a href="@Url.Action(MVC.Category.Detail("Category-Homeappliances", "لوازم-خانگی"))">
+                            <img id="Slide1" src="/Files/Assets/Mosaic Categories/HomeAppliancesBanner.jpg" alt="@Admin.BannerHomeAppliances">
+                        </a>
+                        <a href="@Url.Action(MVC.Category.Detail("Category-Art-Handicraft", "هنر-و-صنایع-دستی"))">
+                            <img id="Slide2" src="/Files/Assets/Mosaic Categories/IranHandicraftsBanner.jpg" alt="@Admin.BannerIranHandicrafts">
+                        </a>
+                        <a href="@Url.Action(MVC.Category.Detail("Category-Glasses", "عینک-مد-و-پوشاک"))">
+                            <img id="Slide3" src="/Files/Assets/Mosaic Categories/GlassesBanner.jpg" alt="@Admin.BannerGlasses">
+                        </a>
+                        <div class="landing-slide-circles">
+                            <i id="Circle1" class="fa fa-circle" data-action="sliderCircle" data-event="click"></i>
+                            <i id="Circle2" class="fa fa-circle-thin" data-action="sliderCircle" data-event="click"></i>
+                            <i id="Circle3" class="fa fa-circle-thin" data-action="sliderCircle" data-event="click"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-side">
+                <a href="http://t.me/novinak_official">
+                    <div class="landing-side-item">
+                        <div class="side-item-social side-item-telegram">
+                            <div class="side-social-circle side-telegram-circle">
+                                <i class="fa fa-send"></i>
+                            </div>
+                        </div>
+                        <div class="side-item-sub side-telegram-sub">
+                            <p class="mosaic-paragraph">@Admin.NovinakTelegramChannel</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://instagram.com/novinak_official">
+                    <div class="landing-side-item">
+                        <div class="side-item-social side-item-instagram">
+                            <div class="side-social-circle side-instagram-circle">
+                                <i class="fa fa-instagram"></i>
+                            </div>
+                        </div>
+                        <div class="side-item-sub side-instagram-sub">
+                            <p class="mosaic-paragraph">@Admin.NovinakInstagramPage</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = "88888888-4444-4444-4444-888888880e05"}))">
+                    <div class="landing-side-item">
+                        <img src="~/Files/Assets/Mosaic Categories/BagsAndShoes.jpg"/>
+                        <div class="side-item-sub side-general-sub">
+                            <p class="mosaic-paragraph">@Admin.MTBagsAndShoes</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = "88888888-4444-4444-4444-888888880e01"}))">
+                    <div class="landing-side-item">
+                        <img src="~/Files/Assets/Mosaic Categories/FashionAndApparel.jpg" />
+                        <div class="side-item-sub side-general-sub">
+                            <p class="mosaic-paragraph">@Admin.MTFashionAndApparel</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = "88888888-4444-4444-4444-888888880e03"}))">
+                    <div class="landing-side-item">
+                        <img src="~/Files/Assets/Mosaic Categories/HealthAndBeauty.jpg" />
+                        <div class="side-item-sub side-general-sub">
+                            <p class="mosaic-paragraph">@Admin.MTBeautyAndHealth</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = "88888888-4444-4444-4444-888888880e04"}))">
+                    <div class="landing-side-item">
+                        <img src="~/Files/Assets/Mosaic Categories/Digital.jpg" />
+                        <div class="side-item-sub side-general-sub">
+                            <p class="mosaic-paragraph">@Admin.MTDigital</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-showcase landing-case" data-action="loadLandingCarousel" data-event="load">
+                <div class="headline primary">
+                    <h4><i class="fa fa-plus-circle landing-headline-icon"></i> @Admin.TheNewestGoods</h4>
+                </div>
+                <div class="landing-items-wrapper landing-items-disp landing-item-car">
+                    <div class="product-list grid">
+                        <div class="landing-column-wrapper owl-carousel">
+                            @Html.Partial(MVC.Product.Views._ListMore, Model.LastProductItemList)
+                        </div>
+                    </div>
+                </div>
+                <div class="headline primary">
+                    <h4><i class="fa fa-eye landing-headline-icon"></i> @Admin.TheMostVisitedGoods</h4>
+                </div>
+                <div class="landing-items-wrapper landing-items-disp landing-item-car">
+                    <div class="product-list grid">
+                        <div class="landing-column-wrapper owl-carousel">
+                            @Html.Partial(MVC.Product.Views._ListMore, Model.MostvisitedItemList)
+                        </div>
+                    </div>
+                </div>
+                <div class="headline primary">
+                    <h4><i class="fa fa-heart landing-headline-icon"></i> @Admin.TheMostPopularGoods</h4>
+                </div>
+                <div class="landing-items-wrapper landing-items-disp landing-item-car">
+                    <div class="product-list grid">
+                        <div class="landing-column-wrapper owl-carousel">
+                            @Html.Partial(MVC.Product.Views._ListMore, Model.MostLikedItemList)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="subscribe-top-footer">
+    <div id="subscribe-banner-wrap">
+        <div id="subscribe-banner">
+            <div class="subscribe-content">
+                <div class="subscribe-header">
+                    <figure>
+                        <img src="@FileConst.NewsIcon" alt="subscribe-icon">
+                    </figure>
+                    <p class="subscribe-title">@Admin.SubscribeToOurNewsletter</p>
+                    <br>
+                    <p>@Admin.AndReceiveTheLatestNewsAndOffers</p>
+                </div>
+                <div class="subscribe-form">
+                    <input type="text" name="Email" id="Email" placeholder="@Admin.EnterEmail">
+                    <button type="button" class="button medium dark" data-action="subscribe" data-event="click">@Admin.Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

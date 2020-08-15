@@ -1,0 +1,130 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.Category.CategoryDetailViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Model.MetaTitle;
+}
+<div class="category-detail-wrapper">
+    <div class="category-image-wrapper">
+        <figure>
+            @if (Model.ImageFileName != null)
+            {
+                <img src="@FileConst.ImagesWebPath.PlusWord(Model.ImageFileName)" alt="@Admin.Category2.PlusWord(" ").PlusWord(Model.Title).PlusWord(" ").PlusWord(Admin.CoverPhoto)" />
+            }
+            else
+            {
+                <img src="@FileConst.Banner" alt="@Admin.Category2.PlusWord(" ").PlusWord(Model.Title).PlusWord(" ").PlusWord(Admin.CoverPhotoDefaultNovinak)" />
+            }
+        </figure>
+    </div>
+    <div class="category-side-wrapper">
+        <ul class="side-categories">
+            <li class="side-category-title">
+                <a href="">
+                    <h1 class="category-detail-title">@Model.MetaTitle</h1>
+                </a>
+            </li>
+            @foreach (var subCategory in Model.Categories)
+            {
+                <li class="side-category">
+                    <a href="@Url.Action(MVC.Category.Detail(subCategory.Alias)).AddSlug(subCategory.MetaTitle)">@subCategory.MetaTitle</a>
+                </li>
+            }
+        </ul>
+        <ul class="side-searches">
+            <li class="side-products-search">
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                    <p>
+                        @if (Model.CategoryType.Equals(1)) {@Admin.SearchWithinProducts} else {@Admin.SearchWithinServices}
+                    </p>
+                </a>
+            </li>
+            <li class="side-companies-search">
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                    <p>@if (Model.CategoryType.Equals(1)) {@Admin.SearchWithinStores} else {@Admin.SearchWithinCompanies}</p>
+                </a>
+            </li>
+        </ul>
+        <div class="side-sharing">
+            <h5><i class="fa fa-share-alt-square"></i> @Admin.Share.PlusWord(":")</h5>
+            <hr>
+            <ul class="side-share-icons">
+                <li class="side-share-icon-wrapper">
+                    <a href="@Url.Action(MVC.Category.Detail(Model.Alias)).AddSlug(Model.MetaTitle).PlusWord("&text=").PlusWord(Model.Title).BeforeWord("https://telegram.me/share/url?url=https://novinak.com")" class="side-share-icon share-telegram">
+                        <i class="fa fa-send"></i>
+                    </a>
+                </li>
+                <li class="side-share-icon-wrapper">
+                    <a href="@Url.Action(MVC.Category.Detail(Model.Alias)).AddSlug(Model.MetaTitle).BeforeWord("https://plus.google.com/share?url=https://novinak.com")" class="side-share-icon share-gplus">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li class="side-share-icon-wrapper">
+                    <a href="@Url.Action(MVC.Category.Detail(Model.Alias)).AddSlug(Model.MetaTitle).BeforeWord("https://www.facebook.com/sharer/sharer.php?u=https://novinak.com")" class="side-share-icon share-fb">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="side-share-icon-wrapper">
+                    <a href="@Url.Action(MVC.Category.Detail(Model.Alias)).AddSlug(Model.MetaTitle).BeforeWord("https://twitter.com/home?status=https://novinak.com")" class="side-share-icon share-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="side-statistics">
+            <h5><i class="fa fa-line-chart"></i> @Admin.Statistics.PlusWord(":")</h5>
+            <hr>
+            <ul class="side-statistic">
+                <li>
+                    <div class="side-statistic-title">
+                        <h6><i class="fa fa-eye"></i> @Admin.Visitors.PlusWord(":")</h6>
+                    </div>
+                    <div class="side-statistic-value">
+                        <h6>@Model.VisitCount</h6>
+                        <hr>
+                    </div>
+                </li>
+                <li>
+                    <div class="side-statistic-title">
+                        <h6><i class="fa fa-space-shuttle fa-flip-horizontal"></i> @Admin.Followers.PlusWord(":")</h6>
+                    </div>
+                    <div class="side-statistic-value">
+                        <h6 id="FollowerCount">@Model.FollowerCount</h6>
+                        <hr>
+                    </div>
+                </li>
+                <li>
+                    <div class="side-statistic-title">
+                        <h6><i class="fa fa-cubes"></i> @if (Model.CategoryType.Equals(1)) { <text>@Admin.Goods.PlusWord(":")</text> } else { <text>@Admin.Services.PlusWord(":")</text> }</h6>
+                    </div>
+                    <div class="side-statistic-value">
+                        <h6>@Model.ProductCount</h6>
+                        <hr>
+                    </div>
+                </li>
+                <li>
+                    <div class="side-statistic-title">
+                        <h6><i class="fa fa-bank"></i> @if (Model.CategoryType.Equals(1)) { <text>@Admin.Stores.PlusWord(":")</text> } else { <text>@Admin.Businesses.PlusWord(":")</text> }</h6>
+                    </div>
+                    <div class="side-statistic-value">
+                        <h6>@Model.CompanyCount</h6>
+                    </div>
+                </li>
+            </ul>
+            <div class="follow-button-wrapper">
+                <input id="categoryId" type="hidden" value="@Model.Id" />
+                <a @if (User.Identity.IsAuthenticated != true) { <text> href="@Url.Action(MVC.Account.RegisterByEmail())" </text>   } else { <text> href="javascript:void(0)" data-action="toggleFollowCategory" data-event="click" data-follow="@Admin.Follow" data-unfollow="@Admin.Unfollow" </text>  } class="follow-button @if (Model.InitFollow) {<text>followed-btn</text>} else {<text>unfollowed-btn</text>}">
+                    @if (Model.InitFollow) {<text>@Admin.Unfollow</text>} else {<text>@Admin.Follow</text>}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="category-main-wrapper">
+
+    </div>
+</div>
+<div class="clearboth"></div>

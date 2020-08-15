@@ -1,0 +1,50 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Debug\Advertise.Data.csprojResolveAssemblyReference.cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Advertise.Data.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Debug\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Debug\Advertise.Data.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\ElmahEFLogger.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Elmah.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\System.Web.Mvc.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\System.Web.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Debug\StructureMap.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Advertise.Data.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Advertise.Data.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Advertise.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\ElmahEFLogger.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\EntityFramework.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\AutoMapper.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\StructureMap.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Elmah.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\System.Web.Razor.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\Advertise.Core.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\ar-SA\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\bin\Debug\fa-IR\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Debug\Advertise.Data.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Debug\Advertise.Data.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Debug\Advertise.Data.pdb

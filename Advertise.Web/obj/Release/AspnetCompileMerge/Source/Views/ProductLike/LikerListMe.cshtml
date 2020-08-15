@@ -1,0 +1,14 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.ProductLike.ProductLikeListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.Likers;
+}
+<div class="content right">
+    <div class="headline simple primary">
+       @* <h4>(@Model.SearchRequest.TotalCount) @Admin.ListMyProductsLikers</h4>*@
+    </div>
+    <div class="follow-list">
+        @Html.Partial(MVC.ProductLike.Views._ListMore, Model)
+    </div>
+</div>

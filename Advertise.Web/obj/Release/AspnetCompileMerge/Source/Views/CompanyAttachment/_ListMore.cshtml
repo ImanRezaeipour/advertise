@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.CompanyAttachment.CompanyAttachmentListViewModel
+    @foreach (var item in Model.CompanyAttachments)
+    {
+        @Html.Partial(MVC.CompanyAttachment.Views._Item,item)
+    }

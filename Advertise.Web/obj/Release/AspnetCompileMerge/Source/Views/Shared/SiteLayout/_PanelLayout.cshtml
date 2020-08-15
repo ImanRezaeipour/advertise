@@ -1,0 +1,463 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+<!DOCTYPE html>
+<html lang="fa-IR" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="author" content="@Admin.SiteTitle">
+    <meta name="language" content="fa-IR,en-US">
+    <meta name="document-type" content="Public">
+    <meta name="document-rating" content="General">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="place:location:latitude" content="35.6989079">
+    <meta property="place:location:longitude" content="51.3916988">
+    <meta property="business:contact_data:locality" content="تهران">
+    <meta property="business:contact_data:country_name" content="ایران">
+    <meta property="business:contact_data:phone_number" content="+98 21 66489436">
+    <meta property="business:contact_data:website" content="http://Novinak.com">
+    <meta property="business:contact_data:email" content="info@novinak.com">
+    <meta property="og:site_name" content="NOVINAK" />
+    <meta property="og:title" content="@ViewBag.Title">
+    <meta property="og:description" content="@ViewBag.Description">
+    @RenderSection("og", false)
+    <link rel="icon" href="/favicon.ico">
+    @Styles.Render("~/bundles/styles/css")
+    @RenderSection("styles", false)
+</head>
+<body>
+    <div id="dashboard-options-menu" class="side-menu dashboard left closed">
+        <svg class="svg-plus">
+            <use xlink:href="#svg-plus"></use>
+        </svg>
+        @Html.Action(MVC.User.PanelHeader())
+    <ul class="dropdown dark hover-effect interactive">
+            @if (User.IsInRole(Auth.CanViewDashboard))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="@Url.Action(MVC.Home.PanelPage())">
+                        <span class="sl-icon fa fa-archive"></span>
+                        <span>@Admin.ManagementPanel</span>
+                    </a>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageCompany))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-briefcase"></span>
+                        <span>@Admin.ManageCompanies</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanListCompany))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Company.List())">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>@Admin.ListCompany</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCompanyAttachment))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyAttachment.List())">
+                                    <i class="fa fa-columns"></i>
+                                    <span>@Admin.ListFiles</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCompanyImage))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyImage.List())">
+                                    <i class="fa fa-image"></i>
+                                    <span>@Admin.ListGalleryImages</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCompanyVideo))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyVideo.List())">
+                                    <i class="fa fa-video-camera fa-flip-horizontal"></i>
+                                    <span>@Admin.ListGalleryVideos</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListQustionCompany))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyQuestion.List())">
+                                    <i class="fa fa-comments-o"></i>
+                                    <span>@Admin.ListQA</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListConversation))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyConversation.List())">
+                                    <i class="fa fa-comments"></i>
+                                    <span>@Admin.ListConversations</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCompanyReview))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanyReview.List())">
+                                    <i class="fa fa-list"></i>
+                                    <span>@Admin.ListReviews</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCompanySocial))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CompanySocial.List())">
+                                    <i class="fa fa-sitemap"></i>
+                                    <span>@Admin.ListSocial</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageProduct))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-dropbox"></span>
+                        <span>@Admin.ManageProducts</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanViewListProduct))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Product.List())">
+                                    <i class="fa fa-cubes"></i>
+                                    <span>@Admin.ListProduct</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListExistProduct))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Product.List())">
+                                    <i class="fa fa-check-square"></i>
+                                    <span>@Admin.ListProductsExistance</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListProductComment))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.ProductComment.List())">
+                                    <i class="fa fa-comment"></i>
+                                    <span>@Admin.ListComments</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListProductReview))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.ProductReview.List())">
+                                    <i class="fa fa-comments-o"></i>
+                                    <span>@Admin.ListReviews</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListTag))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Tag.List())">
+                                    <i class="fa fa-tags"></i>
+                                    <span>@Admin.ListTags</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageCategory))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-list-ul fa-flip-horizontal"></span>
+                        <span>@Admin.ManageCategories</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanViewListCategory))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Category.List())">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>@Admin.ListCategories</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListSpecification))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Specification.List())">
+                                    <i class="fa fa-list"></i>
+                                    <span>@Admin.ListSpecifications</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListSpecificationOption))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.SpecificationOption.List())">
+                                    <i class="fa fa-list-ol"></i>
+                                    <span>@Admin.ListSpecificationOptions</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListCategoryReview))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.CategoryReview.List())">
+                                    <i class="fa fa-comments-o"></i>
+                                    <span>@Admin.ListReviews</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageUsers))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-user-o"></span>
+                        <span>@Admin.ManageUser</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanListUser))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.User.List())">
+                                    <i class="fa fa-users"></i>
+                                    <span>@Admin.ListUsers</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListRole))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Role.List())">
+                                    <i class="fa fa-drivers-license-o"></i>
+                                    <span>@Admin.ListRole</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListReport))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.UserViolation.List())">
+                                    <i class="fa fa-list-alt"></i>
+                                    <span>@Admin.ListViolationReports</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListComplaint))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Complaint.List())">
+                                    <i class="fa fa-indent"></i>
+                                    <span>@Admin.ListComplaintReports</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListNotification))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Notification.ListMe())">
+                                    <i class="fa fa-sticky-note-o fa-flip-horizontal"></i>
+                                    <span>@Admin.ListNotifications</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListNews))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.News.List())">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <span>@Admin.ListNews</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewListNewsletter))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Newsletter.List())">
+                                    <i class="fa fa-file-text-o fa-flip-horizontal"></i>
+                                    <span>@Admin.ListNewsletters</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageTransaction))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-money"></span>
+                        <span>@Admin.ManageTransactions</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanListReceipt))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Receipt.List())">
+                                    <i class="fa fa-shopping-bag"></i>
+                                    <span>@Admin.ListUsersPurchases</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListAccountNumber))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="#">
+                                    <i class="fa fa-credit-card-alt"></i>
+                                    <span>@Admin.ListUsersAccountNumbers</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole(Auth.CanManageSystem))
+            {
+                <li class="dropdown-item interactive">
+                    <a href="#">
+                        <span class="sl-icon fa fa-database"></span>
+                        <span>@Admin.ManageSystem</span>
+                        <svg class="svg-arrow">
+                            <use xlink:href="#svg-arrow"></use>
+                        </svg>
+                    </a>
+                    <ul class="inner-dropdown">
+                        @if (User.IsInRole(Auth.CanViewSystemSettings))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="#">
+                                    <i class="fa fa-cog"></i>
+                                    <span>@Admin.SystemSettings</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewSystemProperties))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="#">
+                                    <i class="fa fa-server"></i>
+                                    <span>@Admin.SystemProperties</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanListElmah))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="/Elmah.axd">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    <span>@Admin.ListErrors</span>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanViewViewersStatistics))
+                        {
+                            <li class="inner-dropdown-item">
+                                <a href="@Url.Action(MVC.Statistic.GridList())">
+                                    <i class="fa fa-eye"></i>
+                                    <span>@Admin.ViewersStatistics</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="dashboard-body">
+        <div class="dashboard-header retracted">
+            <a href="@Url.Action(MVC.Home.LandingPage())" class="db-close-button">
+                <i class="dashboard-close-icon fa fa-times fa-2x"></i>
+            </a>
+            <div class="db-options-button">
+                <i class="dashboard-left-menu-icon fa fa-list-ul"></i>
+                <i class="dashboard-close-icon fa fa-times fa-2x hide-none"></i>
+            </div>
+            <div class="dashboard-header-item title">
+                <div class="db-side-menu-handler">
+                    <i class="dashboard-right-menu-icon fa fa-list-ul fa-flip-horizontal"></i>
+                </div>
+                <h6>@Admin.ProfilePage</h6>
+            </div>
+            <div class="dashboard-header-item form">
+                <form class="dashboard-search">
+                    <input type="text" name="search" id="search_dashboard" placeholder="@Admin.SearchInProfile">
+                    <a href="#">
+                        <div class="dashboard-search-icon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </a>
+                </form>
+            </div>
+            <div class="dashboard-header-item back-button">
+                <a href="@Url.Action(MVC.Home.LandingPage())" class="button mid dark-light">@Admin.MainPage<i class="dashboard-left-arrow fa fa-long-arrow-left"></i></a>
+            </div>
+        </div>
+        <div @if (ViewBag.HasSearchbar == true) {<text>class="contains-searchbar"</text>}>
+            @RenderBody()
+        </div>
+    </div>
+    <svg style="display: none;">
+        <symbol id="svg-arrow" viewBox="0 0 3.923 6.64014" preserveAspectRatio="xMinYMin meet">
+            <path d="M3.711,2.92L0.994,0.202c-0.215-0.213-0.562-0.213-0.776,0c-0.215,0.215-0.215,0.562,0,0.777l2.329,2.329
+			L0.217,5.638c-0.215,0.215-0.214,0.562,0,0.776c0.214,0.214,0.562,0.215,0.776,0l2.717-2.718C3.925,3.482,3.925,3.135,3.711,2.92z" />
+        </symbol>
+    </svg>
+    <svg style="display: none;">
+        <symbol id="svg-star" viewBox="0 0 10 10" preserveAspectRatio="xMinYMin meet">
+            <polygon points="4.994,0.249 6.538,3.376 9.99,3.878 7.492,6.313 8.082,9.751 4.994,8.129 1.907,9.751
+	2.495,6.313 -0.002,3.878 3.45,3.376 " />
+        </symbol>
+    </svg>
+    <svg style="display: none;">
+        <symbol id="svg-plus" viewBox="0 0 13 13" preserveAspectRatio="xMinYMin meet">
+            <rect x="5" width="3" height="13" />
+            <rect y="5" width="13" height="3" />
+        </symbol>
+    </svg>
+    @Scripts.Render("~/bundles/scripts/js")
+    @RenderSection("scripts", false)
+    @Html.Partial(MVC.Shared.Views._Noty)
+    <script type="text/javascript"> sideMenuDashboard(); </script>
+    <script type="text/javascript">!function () { function t() { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, localStorage.getItem("rayToken") ? t.src = "https://app.raychat.io/scripts/js/" + o + "?rid=" + localStorage.getItem("rayToken") + "&href=" + window.location.href : t.src = "https://app.raychat.io/scripts/js/" + o; var e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(t, e) } var e = document, a = window, o = "a40b50a2-4a4a-4244-85e0-f6cbf4db4f6c"; "complete" == e.readyState ? t() : a.attachEvent ? a.attachEvent("onload", t) : a.addEventListener("load", t, !1) }();</script>
+    <script>(function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga'); ga('create', 'UA-102251880-1', 'auto'); ga('send', 'pageview');</script>
+</body>
+</html>

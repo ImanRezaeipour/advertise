@@ -1,0 +1,24 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.ar-SA.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.fa-IR.resources
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.csproj.GenerateResource.Cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Core\obj\Release\Advertise.Core.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.ar-SA.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.Languages.Admin.fa-IR.resources
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.csproj.GenerateResource.Cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Core\obj\Release\Advertise.Core.csproj.CoreCompileInputs.cache

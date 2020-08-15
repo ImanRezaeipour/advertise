@@ -1,0 +1,18 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Microsoft.AspNet.Identity
+@model Advertise.Core.Models.CompanyConversation.CompanyConversationListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.MyPrivateConversations;
+}
+<div class="input-container half fixed-height">
+    <label for="CreatedById" class="rl-label">@Admin.ListUsers</label>
+    <select id="CreatedById" name="CreatedById" data-action="selectListConversation" data-event="change">
+        <option>--- @Admin.Choose ---</option>
+        @foreach (var type in Model.CreatedIdConversationList)
+        {
+            <option value="@type.Value" @if (Model.OwnedById.ToString() == type.Value) {<text> selected="selected"</text>}>@type.Text</option>
+        }
+    </select>
+</div>
+<div id="container"></div>

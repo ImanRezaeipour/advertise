@@ -1,0 +1,55 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Specification.SpecificationEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.EditSpecifications;
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.EditSpecifications</h4>
+            <button form="editSpecification" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+            <a class="button primary" href="@Url.Action(MVC.Specification.List())">
+                <i class="fa fa-undo"></i>
+                <span>@Admin.Return</span>
+            </a>
+        </div>
+        <div class="form-box-item">
+            <form id="editSpecification" action="@Url.Action(MVC.Specification.Edit())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <input type="hidden" id="CategoryId" name="CategoryId" value="@Model.CategoryId" />
+                <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                <div class="input-container half">
+                    <label class="control-label">@Admin.Category:@Model.CategoryTitle</label>
+                </div>
+                <div class="input-container half">
+                    <label for="Title" class="rl-label">@Admin.Title</label>
+                    <input type="text" id="Title" name="Title" value="@Model.Title" placeholder="@Admin.Title" class="tooltipster" title="@Admin.ItShowsSpecificationTitle" data-val="true" data-val-required="@Admin.RequiredTitle2" data-val-length="@Admin.TitleStringLength" data-val-length-max="70"/>
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="input-container half">
+                    <label for="Description" class="rl-label">@Admin.Description</label>
+                    <input type="text" id="Description" name="Description" value="@Model.Description" placeholder="@Admin.Description"class="tooltipster" title="@Admin.ItDescribesSpecification" data-val="true" data-val-required="@Admin.RequiredDescription" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250"/>
+                    <span class="field-validation-error" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Order" class="rl-label">@Admin.Priority</label>
+                    <input type="text" id="Order" name="Order" value="@Model.Order" placeholder="@Admin.Priority" class="tooltipster" title="@Admin.ItShowsSpecificationPriority" data-val="true" data-val-required="@Admin.RequiredPriority" data-pattern="numeric"/>
+                </div>
+                <div class="input-container half">
+                    <label for="Type" class="rl-label tooltipster" title="@Admin.ItShowsSpecificationType">@Admin.Type:</label>
+                    <select id="Type" name="Type" data-val="true" data-val-required="@Admin.RequiredType">
+                        @foreach (var type in Model.TypeList)
+                        {
+                            <option value="@type.Value" @if (Model.Type.ToString() == type.Value) {<text> selected="selected" </text>}> @type.Text </option>
+                        }
+                    </select>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

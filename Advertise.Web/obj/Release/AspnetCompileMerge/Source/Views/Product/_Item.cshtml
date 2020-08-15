@@ -1,0 +1,211 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Core.Types
+@using Advertise.Service.Services.File
+@using Advertise.Service.Services.Products
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.Product.ProductViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items product-items">
+    <div class="product-item column landing-column">
+        <div class="part-eight">
+        @if (Model.Id.CanEditThisProduct() || User.IsInRole(Auth.CanDeleteProduct) || User.IsInRole(Auth.CanChangeStateProduct))
+        {
+            <div class="item-edit-wrapper">
+                <i class="fa fa-pencil-square"></i>
+                <ul class="item-edit-list">
+                    @if (Model.Id.CanEditThisProduct())
+                    {
+                        <li>
+                            <a href="@Url.Action(MVC.Product.Edit(Model.Code))">
+                                <span>@Admin.Edit</span>
+                                <i class="fa fa-pencil fa-flip-horizontal"></i>
+                            </a>
+                        </li>
+                    }
+                    @if (Model.Id.CanEditThisProduct() && User.IsInRole(Auth.CanDeleteProduct))
+                    {
+                        <li>
+                            
+                            <a href="#" data-action="removeItem" data-event="click" data-param="product" data-param-id="@Model.Code">
+                                <span>@Admin.Delete</span>
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Auth.CanChangeStateProduct))
+                    {
+                        <li>
+                            <a href="#">
+                                <span>@Admin.Approve</span>
+                                <i class="fa fa-check-circle"></i>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Auth.CanChangeStateProduct))
+                    {
+                        <li>
+                            <a href="#">
+                                <span>@Admin.Ignore</span>
+                                <i class="fa fa-times-circle"></i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        </div>
+        <div class="part-nine">
+            <div class="sharing-item-li">
+                <i class="fa fa-share-alt-square"></i>
+                <ul class="item-share-list">
+                    <li>
+                        <a href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-"))).PlusWord("&text=").PlusWord(Model.Title).BeforeWord("https://telegram.me/share/url?url=https://novinak.com")">
+                            <span>@Admin.Telegram</span>
+                            <i class="sharings fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-"))).BeforeWord("https://plus.google.com/share?url=https://novinak.com")">
+                            <span>@Admin.GPlus</span>
+                            <i class="sharings fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-"))).BeforeWord("https://www.facebook.com/sharer/sharer.php?u=https://novinak.com")">
+                            <span>@Admin.Facebook2</span>
+                            <i class="sharings fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-"))).BeforeWord("https://twitter.com/home?status=https://novinak.com")">
+                            <span>@Admin.Twitter2</span>
+                            <i class="sharings fa fa-twitter"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @if (Model.DiscountPercent != null && Model.PreviousPrice > Model.Price)
+        {
+            <span class="part-seven">%@Model.DiscountPercent<span>OFF</span></span>
+        }
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                @if (Model.ImageFileName != null)
+                {
+                <a href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-")))">
+                    <div class="item-preview-image">
+                        <img src="@FileConst.ImagesWebPath.PlusWord(Model.ImageFileName)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.Description)">
+                    </div>
+                </a>
+                }
+                else
+                {
+                <div class="item-preview-image">
+                    <img src="@FileConst.NoPreview" alt="product without any preview image">
+                </div>
+                }
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="@Url.Action(MVC.Product.Detail(Model.Code, Model.Title.Replace(" ", "-")))">
+            <p class="novinak-title text-header">@Model.Title</p>
+        </a>
+        <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = Model.CategoryId}))">
+            <p class="part-one">@Model.CategoryTitle</p>
+        </a>
+        @if (Model.PreviousPrice != null && Model.PreviousPrice > Model.Price)
+        {
+            <p class="part-two pre-price">@Model.PreviousPrice<span>@Admin.Toman</span></p>
+        }
+        else
+        {
+            <p class="part-two pre-price"></p>
+        }
+        <p class="part-three">@Model.Price<span>@Admin.Toman</span></p>
+        <hr class="line-separator item-footer">
+        <div class="part-four">
+            <figure class="user-avatar small">
+                @if (Model.CompanyLogoFileName != null)
+                {
+                    <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias,  Model.CompanyTitle.Replace(" ", "-")))">
+                        <div class="novinak-owner-image">
+                            <img src="@FileConst.ImagesWebPath.PlusWord(Model.CompanyLogoFileName)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.CompanyTitle)">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="novinak-owner-image">
+                        <img src="@FileConst.NoLogo" alt="store without logo">
+                    </div>
+                }
+            </figure>
+            <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias,  Model.CompanyTitle.Replace(" ", "-")))" class="tooltipster" title="@Model.CompanyTitle">
+                <p class="part-five text-header tiny">@Model.CompanyTitle</p>
+            </a>
+        </div>
+        <div class="part-six">
+            <div class="li-item-cart">
+            @switch (Model.Sell)
+            {
+                case SellType.Available:
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        if (Model.IsExist)
+                        {
+                                <div class="item-carts-wrapper">
+                                    <div class="item-carts item-carts-buy">
+                                        <i class="item-cart cart tooltipster fa fa-cart-plus" data-action="bagCreate" data-event="click" data-param="@Model.Id" data-state="unbuy" title="@Admin.AddToCart"></i>
+                                        <i class="item-cart bag tooltipster fa fa-shopping-bag" data-action="bagDelete" data-event="click" data-param="@Model.Id" data-state="buy" title="@Admin.RemoveFromCart"></i>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item-carts-wrapper">
+                                    <div class="item-carts">
+                                        <i class="item-cart cart tooltipster fa fa-cart-plus" data-action="bagCreate" data-event="click" data-param="@Model.Id" data-state="unbuy" title="@Admin.AddToCart"></i>
+                                        <i class="item-cart bag tooltipster fa fa-shopping-bag" data-action="bagDelete" data-event="click" data-param="@Model.Id" data-state="buy" title="@Admin.RemoveFromCart"></i>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="item-carts-wrapper">
+                                <div class="item-carts">
+                                    <i class="item-cart cart tooltipster fa fa-cart-plus" title="@Admin.AddToCart"></i>
+                                </div>
+                            </div>
+                        }
+                        break;
+                    case SellType.Unavailable:
+                        <div class="item-carts-wrapper">
+                            <div class="item-carts">
+                                <i class="item-cart unavailabel tooltipster fa fa-times-circle-o" title="@Admin.ProductStateUnavailabel"></i>
+                            </div>
+                        </div>
+                        break;
+                    case SellType.Soon:
+                        <div class="item-carts-wrapper">
+                            <div class="item-carts">
+                                <i class="item-cart soon tooltipster fa fa-clock-o" title="@Admin.ProductStateSoon"></i>
+                            </div>
+                        </div>
+                        break;
+                    case SellType.Hidden:
+                        <div class="item-carts-wrapper">
+                            <div class="item-carts">
+                                <i class="item-cart unsell tooltipster fa fa-ban" title="@Admin.ProductStateUnsell"></i>
+                            </div>
+                        </div>
+                        break;
+                }
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>

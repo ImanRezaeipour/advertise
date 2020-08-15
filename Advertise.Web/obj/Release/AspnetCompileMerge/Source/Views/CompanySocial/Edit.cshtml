@@ -1,0 +1,40 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanySocial.CompanySocialEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.SocialNetworksEdit;
+}
+    <div class="profile-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.SocialNetworksEdit</h4>
+            <button form="editCompanySocial" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+        </div>
+        <div class="form-box-item">
+            <form id="editCompanySocial" action="@Url.Action(MVC.CompanySocial.Edit())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+                <input type="hidden" id="CompanyId" name="CompanyId" value="@Model.CompanyId"/>
+                <div class="input-container half">
+                    <label for="FacebookLink" class="rl-label">@Admin.Facebook</label>
+                    <input type="text" id="FacebookLink" name="FacebookLink" value="@Model.FacebookLink" placeholder="@Admin.Facebook" class="tooltipster" title="@Admin.FacebookAccount"/>
+                </div>
+                <div class="input-container half">
+                    <label for="GooglePlusLink" class="rl-label">@Admin.GooglePlus</label>
+                    <input type="text" id="GooglePlusLink" name="GooglePlusLink" value="@Model.GooglePlusLink" placeholder="@Admin.GooglePlus"  class="tooltipster" title="@Admin.GooglePlusAccount"/>
+                </div>
+                <div class="input-container half">
+                    <label for="TwitterLink" class="rl-label">@Admin.Twitter</label>
+                    <input type="text" id="TwitterLink" name="TwitterLink" value="@Model.TwitterLink" placeholder="@Admin.Twitter"  class="tooltipster" title="@Admin.TwitterAccount"/>
+                </div>
+                <div class="input-container half">
+                    <label for="YoutubeLink" class="rl-label">@Admin.YouTube</label>
+                    <input type="text" id="YoutubeLink" name="YoutubeLink" value="@Model.YoutubeLink" placeholder="@Admin.YouTube"  class="tooltipster" title="@Admin.YouTubeAccount"/>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

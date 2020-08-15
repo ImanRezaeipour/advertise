@@ -1,0 +1,341 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Core.Types
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.Product.ProductDetailViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Model.Title;
+    ViewBag.Keywords = Model.Title.PlusWord("،").PlusWord(Admin.OnlineShopping).PlusWord(" ").PlusWord(Model.Title).PlusWord("،").PlusWord(Model.CategoryTitle).PlusWord(" ").PlusWord(Model.Title).PlusWord("،").PlusWord("نویناک");
+    ViewBag.Description = Admin.Novinak.PlusWord(" ").PlusWord(Admin.OnlineShopping).PlusWord(" ").PlusWord(Model.CategoryTitle).PlusWord(" ").PlusWord(Model.Title);
+}
+@section og{
+    @if (Model.ImageFileName != null)
+    {
+        <meta property="og:image" content="@FileConst.ImagesWebPath.PlusWord(Model.ImageFileName)">
+    }
+    else
+    {
+        <meta property="og:image" content="@FileConst.LogoAvatar">
+    }
+}
+<input type="hidden" name="Id" id="Id" value="@Model.Id" />
+<div class="section-wrap">
+    <div class="section">
+        <div class="top-content">
+            <div class="top-right-content">
+                <div class="top-owner-wrapper">
+                    <h2>@Admin.StoreInfo</h2>
+                    <hr class="line-separator">
+                    @if (Model.CompanyLogoFileName != null)
+                    {
+                        <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias, Model.CompanyTitle.Replace(" ", "-")))" class="product-detail company-logo">
+                            <div class="product-detail company-logo">
+                                <img src="@FileConst.ImagesWebPath.PlusWord(Model.CompanyLogoFileName)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.CompanyTitle)">
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="product-detail company-logo">
+                            <img src="@FileConst.NoLogo" alt="store without logo">
+                        </div>
+                    }
+                    <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias, Model.CompanyTitle.Replace(" ", "-")))">
+                        <p class="text-header">@Model.CompanyTitle</p>
+                    </a>
+                    <p class="text-oneline">@Model.CompanySlogan</p>
+                    <div class="share-icons">
+                        <div class="share-links-wrapper">
+                            <p class="text-header small">@Admin.CommunicationChannels:</p>
+                            <ul class="share-links">
+                                <li><a href="javascript:void(0)" class="tlg" target="_blank"><i class="fa fa-send"></i></a></li>
+                                <li><a href="javascript:void(0)" class="gplus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="javascript:void(0)" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="javascript:void(0)" class="twt" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tags-wrapper">
+                    <hr class="line-separator-spec">
+                    <div class="tags-title-wrapper">
+                        <p>@Admin.Tags</p>
+                    </div>
+                    @if (Model.Tags.Any())
+                    {
+                        foreach (var tag in Model.Tags)
+                        {
+                            <div class="tag-container">
+                                <span class="prod-detail-tag tag-@tag.TagColor">@tag.TagTitle</span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="top-middle-content">
+                <div class="img-slider-wrapper">
+                    <input type="hidden" id="imgCount" data-param="@Model.ImageCount" data-number="">
+                    <div class="img-holder">
+                        @if (Model.ImageFileName != null)
+                        {
+                            <input type="hidden" id="previewCheck" data-param="1">
+                            <img id="slideBgImg" src="@FileConst.ImagesWebPath.PlusWord(Model.ImageFileName)">
+                        }
+                        else
+                        {
+                            <img id="slideBgImg" src="~/Files/Assets/Defaults/no_preview.jpg">
+                        }
+                    </div>
+                    <div class="sliders-wrapper" data-action="slideSize" data-event="load">
+                        <div class="sliders-container">
+                            @if (Model.ImageFileName != null)
+                            {
+                                <div class="slide-holder">
+                                    <div class="slide-centered">
+                                        <img src="@FileConst.ImagesWebPath.PlusWord(Model.ImageFileName)" data-action="resizeSlide" data-event="click">
+                                    </div>
+                                </div>
+                            }
+                            @if (Model.Images.Count != 0)
+                            {
+                                foreach (var img in Model.Images)
+                                {
+                                    <div class="slide-holder">
+                                        <div class="slide-centered">
+                                            <img src="@FileConst.ImagesWebPath.PlusWord(img.FileName)" data-action="resizeSlide" data-event="click">
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="slide-controller-left">
+                        <i class="fa fa-angle-left" data-action="prevSlideImg" data-event="click"></i>
+                    </div>
+                    <div class="slide-controller-right">
+                        <i class="fa fa-angle-right" data-action="nextSlideImg" data-event="click"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="top-left-content">
+                <div class="prod-title-wrapper">
+                    <h1 class="prod-title">@Model.Title</h1>
+                </div>
+                <div class="prod-info-wrapper">
+                    <hr class="line-separator">
+                    <div class="information-layout">
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.Group.PlusWord(": ")</p>
+                            <a href="@Url.Action(MVC.Category.Detail(Model.CategoryAlias)).AddSlug(Model.CategoryTitle)">
+                                <p class="category-text">@Model.CategoryTitle</p>
+                            </a>
+                        </div>
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.CreationDate.PlusWord(": ")</p>
+                            <p class="date-time">@Model.CreatedOn</p>
+                        </div>
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.ModificationDate.PlusWord(": ")</p>
+                            <p class="date-time">@Model.ModifiedOn</p>
+                        </div>
+                    </div>
+                    <hr class="line-separator">
+                </div>
+                <div class="likes-wrapper">
+                    <input type="hidden" value="@Model.Id" name="productId" id="productId" />
+                    <p class="product-detail-eh detail-eye tooltip" title="@Admin.Visitors"><i class="fa fa-eye"></i> @Model.VisitCount </p>
+                    <p class="product-detail-eh detail-heart tooltip" title="@Admin.Likes">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="javascript:void(0);" data-action="toggleLikeProduct" data-event="click">
+                                <i class="fa @if(Model.InitLike) {<text>fa-heart</text>} else {<text>fa-heart-o</text>}"></i>
+                                <span>@Model.LikeCount</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0);">
+                                <i class="fa fa-heart-o"></i>
+                                <span>@Model.LikeCount</span>
+                            </a>
+                        }
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="prices-wrapper">
+                    @if (Model.DiscountPercent != null && Model.HaveDiscount)
+                    {
+                        <div class="discount-wrapper half-detail">
+                            <span>
+                                %@Model.DiscountPercent
+                                <span> @Admin.Discount</span>
+                            </span>
+                        </div>
+                        <p class="product-detail p-price">@Admin.Price: <span class="spn-p-price">@Model.PreviousPrice</span> @Admin.Toman</p>
+                    }
+                    <p class="product-detail o-price">@Admin.PriceForYou: <span class="spn-o-price">@Model.Price</span> @Admin.Toman</p>
+                </div>
+                <div class="cart-top-wrapper">
+                    @switch (Model.Sell)
+                    {
+                        case SellType.Available:
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="product-detail btn-toggle-cart-wrapper half-detail">
+                                    @if (Model.IsExist)
+                        {
+                                        <div class="product-detail btn-toggle-cart item-carts-buy">
+                                            <div class="product-detail btn-toggle tog-a" data-action="bagCreate" data-event="click" data-param="@Model.Id" data-state="unbuy">
+                                                <i class="product-detail btn-cart fa fa-shopping-cart"></i>
+                                                <span class="product-detail btn-cart">@Admin.AddToCart</span>
+                                            </div>
+                                            <div class="product-detail btn-toggle tog-b" data-action="bagDelete" data-event="click" data-param="@Model.Id" data-state="buy">
+                                                <i class="product-detail btn-cart fa fa-shopping-bag"></i>
+                                                <span class="product-detail btn-cart">@Admin.RemoveFromCart</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="product-detail btn-toggle-cart">
+                                            <div class="product-detail btn-toggle tog-a" data-action="bagCreate" data-event="click" data-param="@Model.Id" data-state="unbuy">
+                                                <i class="product-detail btn-cart fa fa-shopping-cart"></i>
+                                                <span class="product-detail btn-cart">@Admin.AddToCart</span>
+                                            </div>
+                                            <div class="product-detail btn-toggle tog-b" data-action="bagDelete" data-event="click" data-param="@Model.Id" data-state="buy">
+                                                <i class="product-detail btn-cart fa fa-shopping-bag"></i>
+                                                <span class="product-detail btn-cart">@Admin.RemoveFromCart</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="product-detail btn-toggle-cart-wrapper">
+                                    <div class="product-detail btn-toggle-cart">
+                                        <div class="product-detail btn-toggle tog-a">
+                                            <i class="product-detail btn-cart fa fa-shopping-cart"></i>
+                                            <span class="product-detail btn-cart">@Admin.AddToCart</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            break;
+                        case SellType.Unavailable:
+                            <div class="product-detail btn-toggle-cart-wrapper">
+                                <div class="product-detail btn-noaction tog-c">
+                                    <i class="product-detail btn-cart fa fa-times-circle-o"></i>
+                                    <span class="product-detail btn-cart">@Admin.ProductStateUnavailabel</span>
+                                </div>
+                            </div>
+                            break;
+                        case SellType.Soon:
+                            <div class="product-detail btn-toggle-cart-wrapper">
+                                <div class="product-detail btn-noaction tog-d">
+                                    <i class="product-detail btn-cart fa fa-clock-o"></i>
+                                    <span class="product-detail btn-cart">@Admin.ProductStateSoon</span>
+                                </div>
+                            </div>
+                            break;
+                        case SellType.Hidden:
+                            <div class="product-detail btn-toggle-cart-wrapper">
+                                <div class="product-detail btn-noaction tog-e">
+                                    <i class="product-detail btn-cart fa fa-ban"></i>
+                                    <span class="product-detail btn-cart">@Admin.ProductStateUnsell</span>
+                                </div>
+                            </div>
+                            break;
+                    }
+                </div>
+                <div class="share-icons">
+                    <hr class="line-separator">
+                    <div class="share-links-wrapper">
+                        <p class="text-header small">@Admin.Share:</p>
+                        <ul class="share-links hoverable">
+                            <li><a href="https://plus.google.com/share?url=http://www.novinak.com/company/detail/@Model.CompanyId" class="tlg" target="_blank"><i class="fa fa-send"></i></a></li>
+                            <li><a href="https://plus.google.com/share?url=http://www.novinak.com/company/detail/@Model.CompanyId" class="gplus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://facebook.com/share?url=http://www.novinak.com/company/detail/@Model.CompanyId" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/share?url=http://www.novinak.com/company/detail/@Model.CompanyId" class="twt" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content full">
+            <article class="product-detail-article">
+                <div class="product-details-container">
+                    <h2>@Admin.ProductDescription</h2>
+                    <hr class="line-separator">
+                    <p>@Model.Description</p>
+                    @if (Model.ProductSpecifications.Any())
+                    {
+                        <h2>@Admin.Specifications</h2>
+                        <div class="spec-table">
+                            @foreach (var spec in Model.ProductSpecifications)
+                            {
+                                <div class="clearboth"></div>
+                                <div class="spec-table-title-wrapper">
+                                    <span class="spec-table-title">@spec.SpecificationTitle</span>
+                                </div>
+                                <div class="spec-table-option-wrapper">
+                                    @foreach (var specO in spec.SpecificationValues)
+                                    {
+                                        if (specO == spec.SpecificationValues.Last())
+                                        {
+                                            <span class="spec-table-option">@specO</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="spec-table-option">@specO.PlusWord(" - ")</span>
+                                        }
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                    @if (Model.Features.Any())
+                    {
+                        <h2>@Admin.Features</h2>
+                        foreach (var feature in Model.Features)
+                        {
+                            <div class="feature-title-wrapper">
+                                <span class="feature-title">@feature.Title</span>
+                            </div>
+                        }
+                    }
+                </div>
+            </article>
+            <div class="post-tab">
+                <div class="tab-header primary">
+                    <div class="tab-item selected">
+                        <p class="text-header">@Admin.Comments (@Model.ProductCommentList.SearchRequest.TotalCount)</p>
+                    </div>
+                    <div class="tab-item">
+                        <p class="text-header">@Admin.Review</p>
+                    </div>
+                </div>
+                <div class="tab-content void">
+                    <div class="comment-list">
+                        @Html.Partial(MVC.ProductComment.Views._DetailListMore, Model.ProductCommentList)
+                        <div class="clearfix"></div>
+                        @if (User.Identity.IsAuthenticated == false)
+                        {
+                            <h3>@Admin.ForLeaveAComment <a href="@Url.Action(MVC.Account.Login())">@Admin.Enter</a> @Admin.FirstShavid </h3>
+                        }
+                        else
+                        {
+                            @Html.Partial(MVC.ProductComment.Views._Create)
+                        }
+                    </div>
+                </div>
+                <div class="tab-content void">
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-gear fa-spin fa-fw"></i>@Admin.MessageSectionUpdating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

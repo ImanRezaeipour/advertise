@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Product.ProductListViewModel
+@{
+    Layout = null;
+}
+@foreach (var item in Model.Products)
+{
+    @Html.Partial(MVC.Product.Views._Item, item)
+}

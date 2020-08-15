@@ -1,0 +1,98 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.ProductReview.ProductReviewViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items review-items">
+    <div class="product-item column landing-column">
+        <div class="part-nine">
+            @if (User.IsInRole(Auth.CanEditProductReview) || User.IsInRole(Auth.CanDeleteProductReview))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (User.IsInRole(Auth.CanEditProductReview))
+                        {
+                            <li>
+                                <a href="@Html.Action(MVC.ProductReview.Edit(Model.Id))">
+                                    <span>@Admin.Edit</span>
+                                    <i class="fa fa-pencil fa-flip-horizontal"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanDeleteProductReview))
+                        {
+                            <li>
+                                <a href="#" data-action="removeItem" data-event="click" data-param="ProductReview" data-param-id="">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                <a href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="modal">
+                    <div class="item-preview-image">
+                        <img src="@FileConst.ReviewProduct" alt="@Admin.ProductsOrServices.PlusWord(" ").PlusWord(Admin.Review)">
+                    </div>
+                </a>
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="javascript:void(0)" data-action="openShadow" data-event="click" data-type="modal">
+            <p class="novinak-title text-header">@Model.Title</p>
+        </a>
+        <a>
+            <p class="part-one empty-one"></p>
+        </a>
+        <p class="part-two"><i class="fa fa-calendar-check-o"></i> <span>@Admin.InsertDate.PlusWord(":")</span></p>
+        <p class="part-three">@Model.CreatedOn</p>
+        @if (!ViewBag.IsMyList)
+        {
+            <hr class="line-separator item-footer">
+            <div class="part-four">
+                <figure class="user-avatar small">
+                    @if (Model.ProductImageFileName != null)
+                {
+                        <a href="@Url.Action(MVC.Product.Detail(Model.ProductCode,Model.Title))">
+                            <div class="novinak-owner-image">
+                                <img src="@FileConst.ImagesWebPath.PlusWord(Model.ProductImageFileName)" alt="@Model.ProductTitle">
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="novinak-owner-image">
+                            <img src="@FileConst.NoPreview" alt="product without image">
+                        </div>
+                    }
+                </figure>
+                <a href="@Url.Action(MVC.Product.Detail(Model.ProductCode, Model.Title))">
+                    <p class="part-five text-header tiny">@Model.ProductTitle</p>
+                </a>
+            </div>
+        }
+        <div class="bg-shadow"></div>
+        <div class="slider-shadow">
+            <div class="slide-file-preview">
+                <div class="inner-preview">
+                    <h3 class="modal-item-title">@Model.Title</h3>
+                    <h5 class="modal-item-content">@Model.Body</h5>
+                    <div class="slide-files-actions">
+                        <div class="slide-action-wrapper slide-file-close" data-action="closeShadow" data-event="click">
+                            <i class="fa fa-times"></i>
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearboth"></div>
+</div>

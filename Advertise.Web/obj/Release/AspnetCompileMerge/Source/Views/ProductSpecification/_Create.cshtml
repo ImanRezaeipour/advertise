@@ -1,0 +1,65 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Types
+@model List<Advertise.Core.Models.ProductSpecification.ProductSpecificationCreateViewModel>
+@{
+    Layout = null;
+    ViewBag.Title = null;
+}
+@for (var item = 0; item < Model.Count; item++)
+{
+    switch (Model[item].Type)
+    {
+        case SpecificationType.Droplist:
+            <div class="input-container">
+                 <label class="rl-label">@Model[item].Title</label>
+                 <select name="Specifications[@item].SpecificationOptionIdList">
+                     @foreach (var option in Model[item].Options)
+                     {
+                        <option value="@option.Id">@option.Title</option>
+                     }
+                 </select>
+             </div>
+            break;
+        case SpecificationType.String:
+            <div class="input-container">
+                 <label class="rl-label">@Model[item].Title</label>
+                 <input type="text" name="Specifications[@item].Value"/>
+             </div>
+            break;
+        case SpecificationType.Checkbox:
+            <div class="input-container">
+                 <label class="rl-label">@Model[item].Title</label>
+                 @for (var option = 0; option < Model[item].Options.Count; option++)
+                 {
+                     <div class="checkbox-inline">
+                         <label class="rl-label">
+                             <input type="hidden" name="Specifications[@item].SpecificationOptionIdList.Index" value="@option">
+                             <input type="checkbox" name="Specifications[@item].SpecificationOptionIdList[@option]" value="@Model[item].Options[option].Id"/>
+                             <span>@Model[item].Options[option].Title</span>
+                         </label>
+                     </div>
+                 }
+             </div>
+            break;
+        case SpecificationType.Color:
+            break;
+        case SpecificationType.Radiobox:
+            <div class="input-container">
+                 <label class="rl-label">@Model[item].Title</label>
+                 @for (var option = 0; option < Model[item].Options.Count; option++)
+                 {
+                     <div class="checkbox-inline">
+                         <label class="rl-label">
+                             <input type="radio" name="Specifications[@item].SpecificationOptionIdList" value="@Model[item].Options[option].Id"/>
+                             <span>@Model[item].Options[option].Title</span>
+                         </label>
+                     </div>
+                 }
+             </div>
+            break;
+        case SpecificationType.Currency:
+            break;
+    }
+    <input type="hidden" name="Specifications[@item].Id" value="@Model[item].Id"/>
+    <hr class="line-separator"/>
+}

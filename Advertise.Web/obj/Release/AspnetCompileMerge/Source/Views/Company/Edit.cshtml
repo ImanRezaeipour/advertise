@@ -1,0 +1,220 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Microsoft.AspNet.Identity
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst
+@model Advertise.Core.Models.Company.CompanyEditViewModel
+@{
+    ViewBag.Title = Admin.CompanyEdit;
+    var x = "true";
+    if (HttpContext.Current.Request.Cookies.Get(HttpContext.Current.User.Identity.GetUserId() + "_Company_Edit_IsMyEdit") != null)
+    {
+        x = HttpContext.Current.Request.Cookies.Get(HttpContext.Current.User.Identity.GetUserId() + "_Company_Edit_IsMyEdit").Value;
+    }
+    if (x != "true")
+    {
+        Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    }
+    else
+    {
+        Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    }
+}
+
+<div class="@if (ViewBag.IsMyEdit != true) {<text>dashboard-content</text>} else {<text>profile-content</text>}">
+    <div class="headline buttons primary">
+        <h4>@Admin.CompanyEdit</h4>
+        @if (User.IsInRole(Auth.CanChangeStateCompany))
+        {
+            <button form="editCompany" type="submit" class="button primary disabled-btn-link" disabled="disabled"  onclick="javascript: form.action = '@Url.Action(MVC.Company.EditApprove())';">
+                <i class="fa fa-check-circle"></i>
+                <span>@Admin.OkAndClose</span>
+            </button>
+            <button form="editCompany" type="submit" class="button primary disabled-btn-link" disabled="disabled"  onclick="javascript: form.action = '@Url.Action(MVC.Company.EditReject())';">
+                <i class="fa fa-times-circle"></i>
+                <span>@Admin.CancelAndClose</span>
+            </button>
+        }
+        else
+        {
+            <button form="editCompany" type="submit" class="button primary disabled-btn-link" disabled="disabled"  onclick="javascript: form.action = '@Url.Action(MVC.Company.Edit())';">
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+        }
+    </div>
+    <div class="form-box-item profile-form">
+        <form id="editCompany" action="" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            <input type="hidden" id="Address_Id" name="Address.Id" value="@Model.Address.Id" />
+            <input type="hidden" id="AddressId" name="AddressId" value="@Model.AddressId" />
+            <div class="input-container fixed-height">
+                @if (Model.IsSetAlias != true)
+                {
+                    <label for="Alias" class="rl-label">* @Admin.DomainName
+                        <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCompanyDomain"></i>
+                    </label>
+                    <input type="text" id="Alias" name="Alias" value="@Model.Alias" placeholder="@Admin.DomainName" data-val="true" data-val-required="@Admin.RequiredDomain" data-val-length="@Admin.MessageLengthDomain" data-val-length-min="6" data-val-length-max="50" data-val-regex-pattern="^([A-Za-z]{1}[A-Za-z0-9\-]{1,}[A-Za-z0-9]{1,})$" data-val-regex="@Admin.MessageRegexDomain"/>
+                    <span class="field-validation-error" data-valmsg-for="Alias" data-valmsg-replace="true"></span>
+                }
+                else if (Model.IsSetAlias == true)
+                {
+                    <label for="Alias" class="rl-label center-rl-label">@Admin.DomainName:
+                        <a href="@Url.Action(MVC.Company.Detail(Model.Alias, Model.Title))">
+                            <span>@Model.Alias</span>
+                        </a>
+                    </label>
+                    <input type="hidden" Name="Alias" value="@Model.Alias"/>
+                }
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Title" class="rl-label">
+                    * @Admin.Title
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCompanyName"></i>
+                </label>
+                <input type="text" id="Title" name="Title" value="@Model.Title" placeholder="@Admin.Title" data-val="true" data-val-required="@Admin.RequiredTitle2" data-val-length="@Admin.MessageLengthTitle" data-val-length-min="2" data-val-length-max="30" />
+                <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Slogan" class="rl-label">@Admin.Slogan
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCompanySlogan"></i>
+                </label>
+                <input type="text" id="Slogan" name="Slogan" value="@Model.Slogan" placeholder="@Admin.ExampleSlogan" />
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="PhoneNumber" class="rl-label">@Admin.Phone
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsPhoneNumber"></i>
+                </label>
+                <input type="text" id="PhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" placeholder="@Admin.ExamplePhoneNumber" data-val="true" data-val-length="@Admin.MessageLengthPhoneNumber" data-val-length-min="11" data-val-length-max="11" data-action="checkNumber" data-event='keydown' />
+                <span class="field-validation-error" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="MobileNumber" class="rl-label">@Admin.Mobile
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsMobileNumber"></i>
+
+                </label>
+                <input type="text" id="MobileNumber" name="MobileNumber" value="@Model.MobileNumber" placeholder="@Admin.ExampleMobileNumber" data-val="true" data-val-length="@Admin.MessageLengthMobileNumber" data-val-length-min="11" data-val-length-max="11" data-pattern="numeric" />
+                <span class="field-validation-error" data-valmsg-for="MobileNumber" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Email" class="rl-label">@Admin.Email
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsEmail"></i>
+                </label>
+                <input type="text" id="Email" name="Email" value="@Model.Email" placeholder="@Admin.ExampleEmail" data-val="true" data-val-email="@Admin.RegularEmail" />
+                <span class="field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="WebSite" class="rl-label">@Admin.WebSite
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCompanyWebsite"></i>
+
+                </label>
+                <input type="text" id="WebSite" name="WebSite" value="@Model.WebSite" placeholder="@Admin.ExampleWebsite" data-val="true" data-val-url="@Admin.RegularWebsite" />
+                <span class="field-validation-error" data-valmsg-for="WebSite" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="EmployeeCount" class="rl-label">@Admin.EmployeeCount
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsEmployeeNumber"></i>
+                </label>
+                <input type="text" id="EmployeeCount" name="EmployeeCount" value="@Model.EmployeeCount" placeholder="@Admin.EmployeeCount" data-val="true" data-val-length="@Admin.MessageLengthEmployeeCount" data-val-length-max="4" data-pattern="numeric" />
+                <span class="field-validation-error" data-valmsg-for="EmployeeCount" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="EstablishedOn" class="rl-label">@Admin.EstablishedOn
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCompanyEstablishDate"></i>
+                
+                </label>
+                <input type="text" id="EstablishedOn" name="EstablishedOn" @*value="@Model.EstablishedOn"*@ placeholder="@Admin.EstablishedOn" data-pattern="numeric" />
+            </div>
+            <div class="input-container half tree-chart-company-edit">
+                <label for="CategoryId" class="rl-label">
+                    @Admin.Category
+                    <i class="fa fa-question-circle tooltipster" title="دسته‌ای که فروشگاه در آن فعالیت می‌کند"></i>
+                </label>
+                <input type="hidden" id="CategoryId" name="CategoryId" value="@Model.CategoryId" data-val="true" data-val-required="@Admin.RequiredCategory" />
+                @if (Model.CategoryId == Guid.Empty)
+                {
+                    <div id="CategoryTree" style="direction: rtl" class="tree" data-action="treeCategoryCompany" data-event="load"></div>
+                }
+                else
+                {
+                    <label for="CategoryId" class="rl-label center-rl-label">
+                      <a href="@Url.Action(MVC.Category.Detail(Model.CategoryAlias))">
+                        <span>@Model.CategoryTitle</span>
+                    </a>
+                </label>
+                }
+            </div>
+
+            <div class="input-container half">
+                <label for="Description" class="rl-label">@Admin.Description
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItDescribes"></i>
+                
+                </label>
+                <textarea rows="14" id="Description" name="Description" class="info-address-textarea"  placeholder="@Admin.Description" data-val="true" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="1000">@Model.Description</textarea>
+            </div>
+            <div class="input-container half">
+                <label for="files" class="rl-label">@Admin.UploadLogo<i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsLogo"></i></label>
+                @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                <div name="files" id="files" data-action="uploaderCompany" data-event="load" data-param="edit"></div>
+                <div id="PreviewContainer"></div>
+            </div>
+            <div class="input-container half" id="UploadCompanyCoverPhoto">
+                <label for="files2" class="rl-label">@Admin.UploadCover
+                    <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCover"></i>
+                
+                </label>
+                @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                <div name="files2" id="files2" data-action="uploaderCompanyCover" data-event="load" data-param="edit"></div>
+            </div>
+            <div class="clearboth"></div>
+            <div class="input-container half" id="SetCompanyOnMap">
+                <input type="hidden" id="Address_Longitude" name="Address.Longitude" value="@Model.Address.Longitude.ZeroIfNull()" />
+                <input type="hidden" id="Address_Latitude" name="Address.Latitude" value="@Model.Address.Latitude.ZeroIfNull()" />
+                <div id="setMap" class="map-holder"></div>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_City_ParentId" class="rl-label">
+                    @Admin.Province <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsProvince"></i>
+                </label>
+                <input type="hidden" name="ProvinceId" id="ProvinceId" value="@Model.Address.City.ParentId" />
+                <select id="Address_City_ParentId" name="Address.City.ParentId" data-val="true" data-val-required="@Admin.RequiredProvince" data-action="selectProvince" data-event="change">
+                    <option value="" selected disabled>-- @Admin.Choose --</option>
+                    @foreach (var province in Model.AddressProvince)
+                    {
+                        <option value="@province.Value" @if (province.Value == Model.Address.City.ParentId.ToString()) { <text> selected</text>}>@province.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_City_Id" class="rl-label">
+                    @Admin.City <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsCity"></i>
+                </label>
+                <input type="hidden" name="CityId" id="CityId" value="@Model.Address.City.Id" />
+                <select id="Address_City_Id" name="Address.City.Id" data-val="true" data-action="selectCity" data-event="load" data-val-required="@Admin.RequiredCity">
+                    <option value="">-- @Admin.Choose --</option>
+                </select>
+            </div>
+            <div class="input-container half address-area">
+                <label for="Address_Extra" class="rl-label">
+                    @Admin.Address <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsAddress"></i>
+                </label>
+                <textarea rows="2" id="Address_Extra" name="Address.Extra" class="info-address-textarea" value="" placeholder="@Admin.Address">
+                    @Model.Address.Extra
+                </textarea>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="Address_PostalCode" class="rl-label">
+                    @Admin.PostalCode <i class="fa fa-question-circle tooltipster" title="@Admin.ItShowsPostalCode"></i>
+                </label>
+                <input type="text" id="Address_PostalCode" name="Address.PostalCode" placeholder="@Admin.ExamplePostalCode" value="@Model.Address.PostalCode"  data-val="true" data-val-length="@Admin.MessageLengthPostalCode" data-val-length-min="10" data-val-length-max="10" data-pattern="numeric" />
+                <span class="field-validation-error" data-valmsg-for="Address.PostalCode" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container"></div>
+            <div class="clearboth"></div>
+        </form>
+    </div>
+</div>
+@section scripts {
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDsVAy5ATsGkBA11NPQWSakpy0BiNuBPTc&callback=mapSet'></script>
+}

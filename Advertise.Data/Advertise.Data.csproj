@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02339557-E292-480B-8F02-2D1C582473ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Advertise.Data</RootNamespace>
+    <AssemblyName>Advertise.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ElmahEFLogger">
+      <HintPath>..\DependentDLL\ElmahEFLogger.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\DependentDLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\DependentDLL\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentDLL\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\DependentDLL\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Z.EntityFramework.Plus.EF6">
+      <HintPath>..\DependentDLL\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
+    <Compile Include="Interceptors\YeKePersian.cs" />
+    <Compile Include="Interceptors\YeKePersianInterceptor.cs" />
+    <Compile Include="Mappings\Ads\AdsPaymentConfig.cs" />
+    <Compile Include="Mappings\Ads\AdsConfig.cs" />
+    <Compile Include="Mappings\Ads\AdsOptionConfig.cs" />
+    <Compile Include="Mappings\Ads\AdsReserveConfig.cs" />
+    <Compile Include="Mappings\Bags\BagConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogFeatureConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogImageConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogKeywordConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogLikeConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogReviewConfig.cs" />
+    <Compile Include="Mappings\Catalogs\CatalogSpecificationConfig.cs" />
+    <Compile Include="Mappings\Categories\CategoryOptionConfig.cs" />
+    <Compile Include="Mappings\Categories\CategoryConfig.cs" />
+    <Compile Include="Mappings\Categories\CategoryFollowConfig.cs" />
+    <Compile Include="Mappings\Categories\CategoryReviewConfig.cs" />
+    <Compile Include="Mappings\Common\BaseConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyHourConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanySlideConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyAttachmentConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyAttachmentFileConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyBalanceConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyConversationConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyFollowConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyImageConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyImageFileConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyOfficialConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyQuestionConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyQuestionLikeConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyRateConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyReserveConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyReviewConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanySocialConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyTagConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyVideoConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyVideoFileConfig.cs" />
+    <Compile Include="Mappings\Companies\CompanyVisitConfig.cs" />
+    <Compile Include="Mappings\Complaints\ComplaintConfig.cs" />
+    <Compile Include="Mappings\Emails\EmailConfig.cs" />
+    <Compile Include="Mappings\Guarantees\GuaranteeConfig.cs" />
+    <Compile Include="Mappings\Keywords\KeywordConfig.cs" />
+    <Compile Include="Mappings\Locations\AddressConfig.cs" />
+    <Compile Include="Mappings\Locations\CityConfig.cs" />
+    <Compile Include="Mappings\Logs\ActivityLogConfig.cs" />
+    <Compile Include="Mappings\Logs\AuditLogConfig.cs" />
+    <Compile Include="Mappings\Manufacturers\ManufacturerConfig.cs" />
+    <Compile Include="Mappings\Newses\NewsConfig.cs" />
+    <Compile Include="Mappings\Newsletters\NewsletterConfig.cs" />
+    <Compile Include="Mappings\Notifications\NotificationConfig.cs" />
+    <Compile Include="Mappings\Permissions\PermissionConfig.cs" />
+    <Compile Include="Mappings\Plans\PlanConfig.cs" />
+    <Compile Include="Mappings\Plans\PlanDiscountConfig.cs" />
+    <Compile Include="Mappings\Plans\PlanOptionConfig.cs" />
+    <Compile Include="Mappings\Plans\PlanPaymentConfig.cs" />
+    <Compile Include="Mappings\Products\ProducKeywordConfig.cs" />
+    <Compile Include="Mappings\Products\ProducFeatureConfig.cs" />
+    <Compile Include="Mappings\Products\ProductCommentConfig.cs" />
+    <Compile Include="Mappings\Products\ProductCommentLikeConfig.cs" />
+    <Compile Include="Mappings\Products\ProductConfig.cs" />
+    <Compile Include="Mappings\Products\ProductImageConfig.cs" />
+    <Compile Include="Mappings\Products\ProductLikeConfig.cs" />
+    <Compile Include="Mappings\Products\ProductNotifyConfig.cs" />
+    <Compile Include="Mappings\Products\ProductRateConfig.cs" />
+    <Compile Include="Mappings\Products\ProductReviewConfig.cs" />
+    <Compile Include="Mappings\Products\ProductSpecificationConfig.cs" />
+    <Compile Include="Mappings\Products\ProductTagConfig.cs" />
+    <Compile Include="Mappings\Products\ProductVisitConfig.cs" />
+    <Compile Include="Mappings\Products\ProducVideoConfig.cs" />
+    <Compile Include="Mappings\Receipts\ReceiptConfig.cs" />
+    <Compile Include="Mappings\Receipts\ReceiptOptionConfig.cs" />
+    <Compile Include="Mappings\Receipts\ReceiptPaymentConfig.cs" />
+    <Compile Include="Mappings\Reports\ReportConfig.cs" />
+    <Compile Include="Mappings\Roles\RoleConfig.cs" />
+    <Compile Include="Mappings\Roles\RolePermissionConfig.cs" />
+    <Compile Include="Mappings\Seos\SeoSettingConfig.cs" />
+    <Compile Include="Mappings\Seos\SeoConfig.cs" />
+    <Compile Include="Mappings\Seos\SeoUrlConfig.cs" />
+    <Compile Include="Mappings\Settings\SettingTransactionConfig.cs" />
+    <Compile Include="Mappings\Settings\SettingConfig.cs" />
+    <Compile Include="Mappings\Smses\SmsConfig.cs" />
+    <Compile Include="Mappings\Smses\SmsOperatorConfig.cs" />
+    <Compile Include="Mappings\Specifications\SpecificationConfig.cs" />
+    <Compile Include="Mappings\Specifications\SpecificationOptionConfig.cs" />
+    <Compile Include="Mappings\Statistics\StatisticConfig.cs" />
+    <Compile Include="Mappings\Tags\TagConfig.cs" />
+    <Compile Include="Mappings\Users\UserBudgetConfig.cs" />
+    <Compile Include="Mappings\Users\UserClaimConfig.cs" />
+    <Compile Include="Mappings\Users\UserConfig.cs" />
+    <Compile Include="Mappings\Users\UserLoginConfig.cs" />
+    <Compile Include="Mappings\Users\UserMetaConfig.cs" />
+    <Compile Include="Mappings\Users\UserOnlineConfig.cs" />
+    <Compile Include="Mappings\Users\UserOperatorConfig.cs" />
+    <Compile Include="Mappings\Users\UserRoleConfig.cs" />
+    <Compile Include="Mappings\Users\UserSettingConfig.cs" />
+    <Compile Include="Mappings\Users\UserViolationConfig.cs" />
+    <Compile Include="DbConfigs\ApplicationDbConfiguration.cs" />
+    <Compile Include="DbConfigs\ApplicationDbMigrationsConfiguration.cs" />
+    <Compile Include="Constants\UowConst.cs" />
+    <Compile Include="Conventions\PluralizeConvention.cs" />
+    <Compile Include="DbContexts\BaseDbContext.cs" />
+    <Compile Include="DbContexts\IUnitOfWork.cs" />
+    <Compile Include="Migrations\ApplicationSqlServerMigrationSqlGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Advertise.Core\Advertise.Core.csproj">
+      <Project>{b4666778-7fbb-4682-abe8-b90a72ba60c1}</Project>
+      <Name>Advertise.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

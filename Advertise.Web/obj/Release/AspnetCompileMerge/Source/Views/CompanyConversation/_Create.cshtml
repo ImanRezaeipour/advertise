@@ -1,0 +1,38 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Microsoft.AspNet.Identity
+@model List<Advertise.Core.Models.CompanyConversation.CompanyConversationViewModel>
+@{
+    var currentUserId = Guid.Empty;
+    if (HttpContext.Current.User.Identity.GetUserId().HasValue())
+    {
+        currentUserId = Guid.Parse(HttpContext.Current.User.Identity.GetUserId());
+    }
+}
+@foreach (var conversation in Model)
+{
+    <div class="post-item @if(currentUserId != conversation.CreatedBy.Id) {<text>receive</text>} else {<text>send</text>}">
+        <div class="inverse-rounded-wrapper">
+            <div class="inverse-rounded"></div>
+        </div>
+        <figure class="post-avatar">
+            <img src="@if (conversation.CreatedBy.AvatarFileName != null) {<text>@FileConst.ImagesWebPath.PlusWord(conversation.CreatedBy.AvatarFileName)</text>} else {<text>@FileConst.NoAvatarPth</text>}" alt="@conversation.CreatedBy.UserName"/>
+        </figure>
+        <div class="post-container">
+            @if (currentUserId != conversation.CreatedBy.Id)
+            {
+                <a href="@Url.Action(MVC.User.Detail(conversation.CreatedBy.UserName))">
+                    <p class="post-owner">@($"{conversation.CreatedBy.UserName} :")</p>
+                </a>
+            }
+            <p class="post-text">@conversation.Body</p>
+            <p class="post-date">@conversation.CreatedOn</p>
+        </div>
+    </div>
+}
+<div class="comment-wrap comment-reply">
+    <textarea id="commentBody" name="commentBody" placeholder="@Admin.PrivateConversation" class="tooltipster" title="@Admin.PrivateConversation" data-val="true" data-val-required="@Admin.RequiredExplain"></textarea>
+    <span class="field-validation-error" data-valmsg-for="commentBody" data-valmsg-replace="true"></span>
+    <button id="btnSendConversation" class="button primary" data-action="sendConversation" data-event="click">@Admin.Send</button>
+</div>

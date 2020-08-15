@@ -1,0 +1,34 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Company.CompanyInfoViewModel
+<div class="panel panel-profile">
+    <div class="panel-body">
+        <input type="hidden" id="companyId" name ="companyId" value="@Model.Id"/>
+        <div class="name"></div>
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <i class="fa " style="color: red; font-size: large;" aria-hidden="true" id="HeartLike" data-action="initLikeCompany" data-event="load"></i>
+            }
+            else
+            {
+                <i class="fa fa-heart-o" style="color: red; font-size: large;" aria-hidden="true" id="HeartLike" onclick="infoNoty('@Admin.Register')"></i>
+            }
+        </div>
+        <div >
+            <span id="CountFollow"></span>
+        </div>
+        <div></div>
+        <ul class="list-inline text-center">
+            <li><a href="" class="profile-facebook-icon"><i class="fa fa-facebook-square"></i>@Model.FacebookLink</a></li>
+            <li><a href="#" class="profile-twitter-icon"><i class="fa fa-twitter-square"></i>@Model.TwitterLink</a></li>
+            <li><a href="#" class="profile-google-icon"><i class="fa fa-google-plus-square"></i>@Model.GooglePlusLink</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    initLike('#HeartLike');
+    justLoad('#CountFollow');
+</script>

@@ -1,0 +1,8 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyQuestion.CompanyQuestionListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.QAs;
+
+    @Html.Partial(MVC.CompanyQuestion.Views._ListMore, Model)
+}

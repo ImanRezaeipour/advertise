@@ -1,0 +1,57 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.SpecificationOption.SpecificationOptionEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.EditSpecificationsOption;
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.EditSpecificationsOption</h4>
+            <button form="editSpecificationOption" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+            <a class="button primary" href="@Url.Action(MVC.SpecificationOption.List())">
+                <i class="fa fa-undo"></i>
+                <span>@Admin.Return</span>
+            </a>
+        </div>
+        <div class="form-box-item">
+            <form id="editSpecificationOption" action="@Url.Action(MVC.SpecificationOption.Edit())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <div class="input-container half">
+                    <label for="CategoryId" class="rl-label">@Admin.Category</label>
+                    <div id="CategoryTree" style="direction:rtl" class="tree" data-action="TreeCategoryReview" data-event="load"></div>  <input type="hidden" name="CategoryId" id="CategoryId" value="@Model.CategoryId" data-val="true" data-val-required="@Admin.RequiredCategory"/>
+                    <span class="field-validation-error" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <input type="hidden" name="SpecificationId" id="SpecificationId" value="@Model.SpecificationId" data-val="true" data-val-required="@Admin.RequiredSpecification"/>
+                    <label for="SpecificationId" class="rl-label">@Admin.Specification</label>
+                    <select id="specificationContainer" onchange="changeEvent(this)" data-hidden="Model.SpecificationId" data-val="true" data-val-regex="@Admin.RegularSpecification" data-val-regex-pattern="^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$">
+                        <option value="" selected>@Admin.Choose</option>
+                    </select>
+                    <span class="field-validation-error" data-valmsg-for="SpecificationId" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <button type="button" class="btn btn-default" onclick="addSpecOption(event, this)" data-items="#items" data-item="#items #item">
+                        <i class="fa fa-plus-square"></i>
+                        <span>@Admin.Add</span>
+                    </button>
+                </div>
+                <div class="input-container half">
+                    <label for="Options.Title" class="rl-label">@Admin.Title</label>
+                    <div id="items">
+                        <div id="item" data-index="0">
+                            <div class="input-container">
+                                <input type="text" id="Options.Title" name="Options.Title" placeholder="@Admin.Title"  class="tooltipster" title="@Admin.ItShowsSpecificationOptionTitle"  data-val="true" data-val-required="@Admin.RequiredTitle2" />
+                                <button type="button" class="btn btn-danger fa fa-trash" onclick="deleteTag(event, 0, '#items #item')"></button>
+                            </div>
+                            <span class="field-validation-error" data-valmsg-for="item" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,62 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Tag.TagEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.EditTag;
+}
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.EditTag</h4>
+        <button form="editTag" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Tag.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="editTag" action="@Url.Action(MVC.Tag.Edit())" method="Post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            <div class="input-container half">
+                <label for="Title" class="rl-label">@Admin.Title</label>
+                <input type="text" id="Title" name="Title" value="@Model.Title" placeholder="@Admin.Title" data-val="true" data-val-required="@Admin.RequiredTitle2"/>
+                <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Color" class="rl-label">@Admin.Color</label>
+                <select id="Color" name="Color">
+                    @foreach (var color in Model.ColorTypeList)
+                    {
+                        <option value="@color.Value" @if(Model.Color.ToString() == color.Value) {<text>selected</text>}>@color.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container half">
+                <label for="Description" class="rl-label">@Admin.Description</label>
+                <input type="text" id="Description" name="Description" value="@Model.Description" placeholder="@Admin.Description" />
+            </div>
+            <div class="input-container half">
+                <label for="CostValue" class="rl-label">@Admin.Price <span>(@Admin.Toman)</span></label>
+                <input type="text" id="CostValue" name="CostValue" value="@Model.CostValue" placeholder="@Admin.Price" data-pattern="numeric"/>
+            </div>
+            <div class="input-container half">
+                <label for="DurationDay" class="rl-label">@Admin.DurationOfUse</label>
+                <input type="text" id="DurationDay" name="DurationDay" value="@Model.DurationDay" placeholder="@Admin.DurationOfUse" />
+            </div>
+            <div class="input-container half">
+                <label for="file" class="rl-label">@Admin.UploadImage</label>
+                @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                <div name="file" id="file" data-action="uploaderTag" data-event="load" data-param="edit"></div>
+            </div>
+            <div clas="input-container half">
+                <label for="IsActive" class="rl-label">@Admin.Status</label>
+                <input type="checkbox" id="IsActive" name="IsActive" value="true" checked="@Model.IsActive" />
+                <input type="hidden" name="IsActive" value="false" />
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

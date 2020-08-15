@@ -1,0 +1,54 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.Tag.TagViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items tag-items">
+    <div class="product-item column landing-column">
+        <div class="part-nine">
+            @if (User.IsInRole(Auth.CanEditTag) || User.IsInRole(Auth.CanDeleteTag))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (User.IsInRole(Auth.CanEditTag))
+                        {
+                            <li>
+                                <a href="@Url.Action(MVC.Tag.Edit(Model.Id))">
+                                    <span>@Admin.Edit</span>
+                                    <i class="fa fa-pencil fa-flip-horizontal"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanDeleteTag))
+                        {
+                            <li>
+                                <a href="#" data-action="removeItem" data-event="click" data-param="Tag">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <span class="part-seven tag-@Model.Color"><span>@Admin.Tag</span></span>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                <div class="item-preview-image">
+                    <img src="@FileConst.Tag" alt="@Admin.Tags.PlusWord(" ").PlusWord(Model.Title)">
+                </div>
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="javascript:void(0)">
+            <p class="novinak-title text-header">@Model.Title</p>
+        </a>
+        <p class="part-two pre-price"><i class="fa fa-calendar-check-o"></i> <span>@Admin.InsertDate.PlusWord(":")</span></p>
+        <p class="part-three">@Model.CreatedOn</p>
+        <div class="clearboth"></div>
+    </div>
+</div>

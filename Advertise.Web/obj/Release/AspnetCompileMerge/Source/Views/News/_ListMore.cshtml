@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.News.NewsListViewModel
+    @foreach (var item in @Model.News)
+    {
+        @Html.Partial(MVC.News.Views._Item,item)
+    }

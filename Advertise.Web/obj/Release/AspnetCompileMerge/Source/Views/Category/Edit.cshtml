@@ -1,0 +1,74 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CategoryEdit;
+}
+@model Advertise.Core.Models.Category.CategoryEditViewModel
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.Edit</h4>
+        <button form="editCategory" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Category.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="editCategory" action="@Url.Action(MVC.Category.Edit())" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" id="categoryId" name="categoryId" value="@Model.Id" />
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            <div class="input-container half">
+                <label for="ParentId" class="rl-label tooltipster" title="@Admin.CategoryIncludingNewCategory">@Admin.Category</label>
+                <div id="CategoryTree" style="direction:rtl" class="tree" data-action="treeCategory" data-event="load" data-param="edit"></div>
+                <input type="hidden" id="ParentId" name="ParentId" value="@Model.ParentId" data-val="true" data-val-required="@Admin.RequiredCategory" />
+                <span class="field-validation-error" data-valmsg-for="ParentId" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Title" class="rl-label">@Admin.Title</label>
+                <input type="text" id="Title" name="Title" value="@Model.Title" class="tooltipster" title="@Admin.ItShowsCategoryName" data-val="true" placeholder="@Admin.Title" data-val-required="@Admin.RequiredTitle"/>
+                <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Description" class="rl-label">@Admin.Description</label>
+                <input type="text" id="Description" name="Description" value="@Model.Description" class="form-control tooltipster" title="@Admin.ItDescribesCategory" placeholder="@Admin.Description" data-val="true" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250" />
+                <span class="field-validation-error" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Alias" class="rl-label">نام مستعار</label>
+                <input type="text" id="Alias" name="Alias" value="@Model.Alias" placeholder="نام مستعار" data-val="true" class="form-control tooltipster" title="@Admin.ItDescribesCategory" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250" />
+                <span class="field-validation-error" data-valmsg-for="Alias" data-valmsg-replace="true"></span>
+            </div>
+           
+            <div class="input-container half fixed-height">
+                <label for="CategoryType" class="rl-label">نوع دسته بندی :</label>
+                <select id="CategoryType" name="CategoryType">
+                    @foreach (var type in Model.CategoryTypeList)
+                    {
+                        <option value="@type.Value" @if (Model.Type.ToString() == type.Value) { <text> selected="selected" </text>   }>@type.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container half">
+                <label for="Order" class="rl-label">الویت</label>
+                <input type="text" id="Order" name="Order" placeholder="الویت" value="@Model.Order" data-val="true" class="form-control tooltipster" title="@Admin.ItDescribesCategory" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250" />
+                <span class="field-validation-error" data-valmsg-for="Order" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="files" class="rl-label tooltipster" title="@Admin.ItChoosesImage">@Admin.UploadImage</label>
+                @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                <div name="files" id="files" data-action="uploaderCategory" data-event="load" data-param="edit"></div>
+            </div>
+            <div clas="input-container half">
+                <label for="IsActive" class="rl-label">@Admin.Status</label>
+                <input type="checkbox" id="IsActive" name="IsActive" value="true" checked="@Model.IsActive" class="tooltipster" title="@Admin.ItActivesOrDeactivesCategory"/>
+                <input type="hidden" name="IsActive" value="false" />
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

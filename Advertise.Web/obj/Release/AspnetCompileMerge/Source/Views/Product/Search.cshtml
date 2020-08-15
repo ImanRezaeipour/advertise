@@ -1,0 +1,92 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Web.Framework.MvcPaging
+@model Advertise.Core.Models.Product.ProductListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.SearchProducts;
+}
+<div id="PageName" data-action="loadViewType" data-event="load" data-page-name="searchProducts"></div>
+<div class="section-wrap">
+    <div class="section">
+        <div class="content">
+            <div class="headline buttons primary">
+                <h4>@Admin.ListProduct</h4>
+            </div>
+            <div id="search" class="headline buttons secondary">
+                <div class="input-container lists-header">
+                    <select id="SortMember" name="SortMember" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                        <option disabled="disabled">@Admin.SortBy</option>
+                        @foreach (var sortMember in Model.SortMemberList)
+                        {
+                            <option value="@sortMember.Value" @if (sortMember.Value == Model.SearchRequest.SortMember){<text>selected</text>}>@sortMember.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="input-container lists-header">
+                    <select id="SortDirection" name="SortDirection" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                        <option disabled="disabled">@Admin.SortDirection</option>
+                        @foreach (var sortDirection in Model.SortDirectionList)
+                        {
+                            <option value="@sortDirection.Value" @if (sortDirection.Value == Model.SearchRequest.SortDirection){<text>selected</text>}>@sortDirection.Text ()</option>
+                        }
+                    </select>
+                </div>
+                <div class="input-container lists-header">
+                    <select id="PageSize" name="PageSize" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                        <option disabled="disabled">@Admin.PageSize</option>
+                        @foreach (var pageSize in Model.PageSizeList)
+                        {
+                            <option value="@pageSize.Value" @if (pageSize.Value == Model.SearchRequest.PageSize.ToString()){<text>selected</text>}>@pageSize.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="view-types-wrapper">
+                    <div class="grid-view-holder tooltipster" title="@Admin.ListView" data-action="renderView" data-event="click" data-param="grid">
+                        <i class="fa fa-th-list fa-flip-horizontal"></i>
+                    </div>
+                    <div class="item-view-holder tooltipster" title="@Admin.GridView" data-action="renderView" data-event="click" data-param="item">
+                        <i class="fa fa-th"></i>
+                    </div>
+                </div>
+                <div class="input-container lists-header">
+                    <input type="text" id="Term" name="Term" value="@Model.SearchRequest.Term" class="searchbar-lists-header" data-action="searchGrid" data-event="keyPress" placeholder="@Admin.Search"/>
+                </div>
+                <button class="button secondary" type="button" data-action="navigate" data-event="click">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="landing-grids-wrapper">
+                <div class="product-list grid">
+                    <div class="landing-column-wrapper">
+                        @Html.Partial(MVC.Product.Views._ListMore, Model)
+                    </div>
+                </div>
+            </div>
+            <div class="pager">
+                @Html.Pager(Model.SearchRequest.PageSize, Model.SearchRequest.PageIndex, Model.SearchRequest.TotalCount).Options(opt => opt.PageRouteValueKey("pageindex").RouteValues(new {}).AddFromQueryString(Request))
+            </div>
+        </div>
+        <div class="sidebar">
+            <h4>@Admin.City</h4>
+            <div>
+                <select name="StateId" data-action="navigate" data-event="change">
+                    <option value="" selected>-- @Admin.All --</option>
+                    @foreach (var city in Model.CityList)
+                    {
+                        <option value="@city.Value" @if(city.Value == Model.SearchRequest.StateId.ToString()) {<text>selected</text>}>@city.Text</option>
+                    }
+                </select>
+            </div>
+            <h4>@Admin.Category2</h4>
+            <div>
+                <select name="CategoryId" data-action="navigate" data-event="change">
+                    <option value="" selected>-- @Admin.All --</option>
+                    @foreach (var category in Model.CategoryList)
+                    {
+                        <option value="@category.Value" @if(category.Value == Model.SearchRequest.CategoryId.ToString()) {<text>selected</text>}>@category.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyImage.CompanyImageListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.ListGalleryImages;
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-ctrls">
+            <a class="btn btn-md btn-primary-alt btn-label" href="@Url.Action(MVC.CompanyImage.Create())">
+                <i class="fa fa-plus-squared"></i>
+                @Admin.New
+            </a>
+        </div>
+    </div>
+    <div class="panel-body" id="Search">
+        <div class="form-inline" role="form">
+            <div class="form-group col-md-3">
+                <i class="fa fa-sort"></i>
+                <label for="SortMember" class="control-label">@Admin.SortBy</label>
+                <select id="SortMember" name="SortMember" class="form-control" data-action="navigate" data-event="change">
+                    <option disabled="disabled">@Admin.SortBy</option>
+                    @foreach (var sortMember in Model.SortMemberList)
+                    {
+                        <option value="@sortMember.Value">@sortMember.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <i class="fa fa-sort-amount-asc"></i>
+                <label for="SortDirection" class="control-label">@Admin.Direction</label>
+                <select id="SortDirection" name="SortDirection" class="form-control" data-action="navigate" data-event="change">
+                    <option disabled="disabled">@Admin.SortDirection</option>
+                    @foreach (var sortDirection in Model.SortDirectionList)
+                    {
+                        <option value="@sortDirection.Value">@sortDirection.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <i class="fa fa-table"></i>
+                <label for="PageSize" class="control-label">@Admin.PageSize</label>
+                <select id="PageSize" name="PageSize" class="form-control" data-action="navigate" data-event="change">
+                    <option disabled="disabled">@Admin.PageSize</option>
+                    @foreach (var pageSize in Model.PageSizeList)
+                    {
+                        <option value="@pageSize.Value">@pageSize.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <i class="fa fa-indent"></i>
+                <select id="Active" name="Active" class="form-control">
+                    <option disabled="disabled">@Admin.Status</option>
+                    @foreach (var active in Model.StateList)
+                    {
+                        <option value="@active.Value">@active.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-1">
+                <div class="input-group">
+                    <input type="text" id="Search" name="Search" class="form-control" placeholder="@Admin.Search" data-val="true" data-val-required="@Admin.RequiredSearchText" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" data-action="onKendoLoadNavigator" data-event="load"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="CompanyImageList" data-action="fillKendoGridCompanyImage" data-event="load" data-message="@Admin.MessageSuccessfullyOperation">
+        </div>
+            <div id="CompanyImageDeleteModal"></div>
+            <div id="CompanyImageModal"></div>
+    </div>
+</div>

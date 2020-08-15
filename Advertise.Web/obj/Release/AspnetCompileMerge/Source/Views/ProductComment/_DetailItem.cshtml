@@ -1,0 +1,19 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.ProductComment.ProductCommentViewModel
+    @{
+        Layout = null;
+    }
+<div class="comment-wrap-each">
+    <a href="@Url.Action(MVC.User.Detail(Model.UserUserName))">
+        <figure class="user-avatar medium">
+            <img src="/Files/Users/Avatars/@Model.UserAvatar" alt="@Model.UserDisplayName">
+        </figure>
+    </a>
+    <div class="comment">
+        <p class="text-header">@Model.UserFullName</p>									
+        <p class="timestamp">@Model.CreatedOn</p>
+        <a href="#" class="report">@Admin.Report</a>
+        <p>@Model.Body</p>
+    </div>
+</div>
+<hr class="line-separator">

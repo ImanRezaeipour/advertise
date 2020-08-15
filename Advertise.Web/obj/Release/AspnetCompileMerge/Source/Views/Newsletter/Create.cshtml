@@ -1,0 +1,41 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Newsletter.NewsletterCreateViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CreateNews;
+}
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.CreateNews</h4>
+        <button form="newNews" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Newsletter.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="newNews" action="@Url.Action(MVC.Newsletter.Create())" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="input-container half">
+                <label for="Email" class="rl-label" >@Admin.Title</label>
+                <input type="text" id="Email" name="Email" class="form-control tooltipster" placeholder="@Admin.ExampleEmail" title="@Admin.ItShowsEmail" data-val="true" data-val-email="@Admin.RegularEmail" />
+                <span class="field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Meet" class="rl-label">@Admin.HowToRegister</label>
+                <select id="Meet" name="Meet" data-action="navigate" data-event="change">
+                    <option disabled="disabled">@Admin.HowToRegister</option>
+                    @foreach (var meet in Model.MeetList)
+                    {
+                        <option value="@meet.Value" @if (Model.Meet.ToString() == meet.Value) { <text> selected="selected" </text>  }>@meet.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

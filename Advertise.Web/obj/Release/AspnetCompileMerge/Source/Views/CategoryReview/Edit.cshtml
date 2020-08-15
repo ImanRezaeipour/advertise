@@ -1,0 +1,50 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CategoryReview.CategoryReviewEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CategoryReviewEdit;
+}
+    <div class="dashboard-content">
+        <div class="headline buttons primary">
+            <h4>@Admin.CategoryReviewEdit</h4>
+            <button form="editCategoryReview" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+                <i class="fa fa-save"></i>
+                <span>@Admin.Save</span>
+            </button>
+            <a class="button primary" href="@Url.Action(MVC.CategoryReview.List())">
+                <i class="fa fa-undo"></i>
+                <span>@Admin.Return</span>
+            </a>
+        </div>
+        <div class="form-box-item">
+            <form id="editCategoryReview" action="@Url.Action(MVC.CategoryReview.Edit())" method="Post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                <div class="input-container half">
+                    <label for="CategoryTree" class="rl-label tooltipster" title="@Admin.BeReviewedCategory">@Admin.Category</label>
+                    <div id="CategoryTree" style="direction:rtl" class="tree" data-action="treeCategoryReview" data-event="load" data-param="edit"></div>
+                    <input type="hidden" id="CategoryId" name="CategoryId" value="@Model.CategoryId" data-val="true" data-val-required="@Admin.RequiredCategory"/>
+                    <span class="field-validation-error" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="Title" class="rl-label">@Admin.Title</label>
+                    <input type="text" id="Title" name="Title" value="@Model.Title" placeholder="@Admin.Title" class="tooltipster" title="@Admin.Title" data-val="true" data-val-required="@Admin.RequiredTitle" data-val-length="@Admin.MessageLengthTitle" data-val-length-min="2" data-val-length-max="30"/>
+                    <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+                </div>
+                <div class="input-container half">
+                    <label for="IsActive" class="rl-label">@Admin.Status</label>
+                    <input type="checkbox" id="IsActive" name="IsActive" value="true" checked="@Model.IsActive" class="tooltipster" title="@Admin.ItActivesOrDeactivesReview"/>
+                    <input type="hidden" name="IsActive" value="false"/>
+                </div>
+                <div class="input-container">
+                    <label for="Body" class="control-label tooltipster" title="@Admin.ItDescribesReview">@Admin.FullExplanation</label>
+                    <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                    <textarea id="Body" name="Body" data-action="fillEditorCompanyReview" data-event="load" data-val="true" data-val-required="@Admin.RequiredExplain">
+                        @Model.Body
+                    </textarea>
+                </div>
+                <div class="input-container"></div>
+            </form>
+        </div>
+    </div>

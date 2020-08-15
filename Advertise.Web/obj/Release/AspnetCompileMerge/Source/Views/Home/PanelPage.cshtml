@@ -1,0 +1,48 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.DashboardPanel;
+}
+@model Advertise.Core.Models.Home.DashBoardViewModel
+<div class="dashboard-content">
+    <div class="headline simple primary">
+        <h4>@Admin.TotalStatistics</h4>
+    </div>
+    <div class="graph-stats-list">
+        <a href="@Url.Action(MVC.Company.List())">
+            <div class="graph-stats-list-item green bars">
+                <h2>@Model.AllCompanyCount</h2>
+                <p class="text-header">@Admin.TotalCompaniesNumber</p>
+                <p></p>
+            </div>
+        </a>
+        <a href="@Url.Action(MVC.Product.List())">
+            <div class="graph-stats-list-item violet line">
+                <h2>@Model.AllProductCount</h2>
+                <p class="text-header">@Admin.TotalProductsNumber</p>
+                <p></p>
+            </div>
+        </a>
+        <a href="@Url.Action(MVC.Category.List())">
+            <div class="graph-stats-list-item blue step">
+                <h2>@Model.AllCategoryCount</h2>
+                <p class="text-header">@Admin.TotalCategoriesNumber</p>
+                <p></p>
+            </div>
+        </a>
+        <a href="@Url.Action(MVC.User.List())">
+            <div class="graph-stats-list-item red curve">
+                <h2>@Model.AllUserCount</h2>
+                <p class="text-header">@Admin.TotalUsersNumber</p>
+                <p></p>
+            </div>
+        </a>
+        <a href="@Url.Action(MVC.Statistic.GridList())">
+            <div class="graph-stats-list-item green bars">
+                <h2>@Model.AllVisitCount</h2>
+                <p class="text-header">@Admin.TotalVisitorsNumber</p>
+                <p></p>
+            </div>
+        </a>
+    </div>
+</div>

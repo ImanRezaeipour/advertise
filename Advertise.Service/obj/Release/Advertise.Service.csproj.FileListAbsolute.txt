@@ -1,0 +1,44 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Service.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Service.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Elmah.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\ImageProcessor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.AspNet.Identity.Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.Owin.Host.SystemWeb.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.Owin.Security.Cookies.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.Owin.Security.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Newtonsoft.Json.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\NReco.VideoConverter.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\NReco.VideoInfo.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\RedLock.StrongName.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\StackExchange.Redis.StrongName.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Linq.Dynamic.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.Helpers.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.Mvc.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Z.EntityFramework.Plus.EF6.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Z.ExtensionMethods.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\EntityFramework.SqlServer.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\ElmahEFLogger.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.WebPages.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.WebPages.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Microsoft.Web.Infrastructure.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\System.Web.WebPages.Deployment.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\Advertise.Data.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Release\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Release\Advertise.Service.csprojResolveAssemblyReference.cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Release\Advertise.Service.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Release\Advertise.Service.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Release\Advertise.Service.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Release\Advertise.Service.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Release\Advertise.Service.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Release\Advertise.Service.csproj.CoreCompileInputs.cache

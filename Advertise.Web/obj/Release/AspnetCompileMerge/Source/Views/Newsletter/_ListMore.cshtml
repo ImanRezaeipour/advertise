@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Newsletter.NewsletterListViewModel
+    @foreach (var item in @Model.Newsletter)
+    {
+        @Html.Partial(MVC.Newsletter.Views._Item,item)
+    }

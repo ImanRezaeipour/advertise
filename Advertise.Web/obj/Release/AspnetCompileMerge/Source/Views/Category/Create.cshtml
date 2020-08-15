@@ -1,0 +1,67 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+ @{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CreateCategory;
+}
+@model Advertise.Core.Models.Category.CategoryCreateViewModel
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.CategoryCreation</h4>
+        <button type="submit" class="button primary disabled-btn-link" disabled="disabled"  form="newCategory">
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Category.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form action="@Url.Action(MVC.Category.Create())" method="Post" id="newCategory">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" id="Id" name="Id" value="" />
+            <div class="input-container half">
+                <label for="ParentId" class="rl-label tooltipster" title="@Admin.CategoryIncludingNewCategory">@Admin.Category</label>
+                <div id="CategoryTree" style="direction:rtl" class="tree" data-action="treeCategory" data-event="load"></div>
+                <input type="hidden" id="ParentId" name="ParentId" data-val="true" data-val-required="@Admin.RequiredCategory" />
+                <span class="field-validation-error" data-valmsg-for="ParentId" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Title" class="rl-label">@Admin.Title</label>
+                <input type="text" id="Title" name="Title" data-val="true" data-val-required="@Admin.RequiredTitle" placeholder="@Admin.Title" class="tooltipster" title="@Admin.ItShowsCategoryName"/>
+                <span class="field-validation-error" data-valmsg-for="Title" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Description" class="rl-label">@Admin.Description</label>
+                <input type="text" id="Description" name="Description" placeholder="@Admin.Description" data-val="true" class="form-control tooltipster" title="@Admin.ItDescribesCategory" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250" />
+                <span class="field-validation-error" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half">
+                <label for="Alias" class="rl-label">نام مستعار</label>
+                <input type="text" id="Alias" name="Alias" placeholder="نام مستعار" data-val="true" class="form-control tooltipster" title="@Admin.ItDescribesCategory" data-val-length="@Admin.MessageLengthDescription" data-val-length-max="250" />
+                <span class="field-validation-error" data-valmsg-for="Alias" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container half fixed-height">
+                <label for="CategoryType" class="rl-label">نوع دسته بندی :</label>
+                <select id="CategoryType" name="CategoryType">
+                    @foreach (var type in Model.CategoryTypeList)
+                    {
+                        <option value="@type.Value">@type.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container half">
+                <label for="Order" class="rl-label">الویت</label>
+                <input type="text" id="Order" name="Order" placeholder="الویت" data-val="true" class="form-control tooltipster" title="الویت مشخص شود" />
+            </div>
+            <div class="input-container half">
+                <label for="files" class="rl-label tooltipster" title="@Admin.ItChoosesImage">@Admin.UploadImage</label>
+                @Html.Partial(MVC.Shared.Views._FineUploaderTemplate)
+                <div name="files" id="files" data-action="uploaderCategory" data-event="load"></div>
+
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.User.UserAddPhoneNumberViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.Login;
+}
+<div class="register-wrapper">
+    <div class="form-box-item form-popup register-structure">
+        <form action="@Url.Action(MVC.Account.ConfirmationPhoneNumber())" method="Post" class="form-popup-content">
+            @Html.AntiForgeryToken()
+            <h4 class="popup-title register-header">
+                <i class="fa fa-check-square-o"></i>
+                <span>@Admin.PhoneNumberConfirmation</span>
+            </h4>
+            <hr class="line-separator short register-hr">
+            <p class="spaced register-paragraph">
+                <i class="fa fa-exclamation-circle"></i>
+                <span>@Admin.MessageApproveMobile</span>
+            </p>
+            @Html.ValidationSummary()
+            <div class="input-container">
+                <i class="fa fa-mobile-phone register-icon"></i>
+                <label for="MobileNumber" class="rl-label register-label">@Admin.Mobile</label>
+                <input type="text" id="MobileNumber" name="MobileNumber" class="register-input" placeholder="@Admin.ExampleMobileNumber" data-val="true" data-val-required="@Admin.RequiredMobileNumber" data-val-length="@Admin.MessageLengthMobileNumber" data-val-length-min="11" data-val-length-max="11" data-pattern="numeric">
+                <span class="field-validation-error" data-valmsg-for="MobileNumber" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container">
+                <button type="submit" class="button mid dark register-top-btn">
+                    <span>@Admin.ConfirmMobile</span>
+                </button>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

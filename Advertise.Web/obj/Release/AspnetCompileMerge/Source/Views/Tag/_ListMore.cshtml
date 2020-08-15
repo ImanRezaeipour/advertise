@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Tag.TagListViewModel
+    @foreach (var item in @Model.Tags)
+    {
+        @Html.Partial(MVC.Tag.Views._Item,item)
+    }

@@ -1,0 +1,12 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.ListMyLikesProducts;
+}
+@model Advertise.Core.Models.ProductLike.ProductLikeListViewModel
+<div class="content right">
+    <div class="headline simple primary">
+        <h4>@Admin.ListMyLikesProducts <span class="number-color">(@Model.SearchRequest.TotalCount)</span></h4>
+    </div>
+    @Html.Partial(MVC.ProductLike.Views._ListMore, Model)
+</div>

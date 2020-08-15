@@ -1,0 +1,36 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.ProductComment.ProductCommentEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.CommentEdit;
+}
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.CommentEdit</h4>
+        <button form="editProductComment" type="submit" class="button primary" onclick="javascript: form.action = '@Url.Action(MVC.ProductComment.Edit())';">
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <button form="editProductComment" type="submit" class="button primary" onclick="javascript: form.action = '@Url.Action(MVC.ProductComment.EditApprove())';">
+            <i class="fa fa-save"></i>
+            <span>@Admin.ConfirmAndSave</span>
+        </button>
+        <button form="editProductComment" type="submit" class="button primary" onclick="javascript: form.action = '@Url.Action(MVC.ProductComment.EditReject())';">
+            <i class="fa fa-save"></i>
+            <span>@Admin.RejectAndSave</span>
+        </button>
+    </div>
+    <div class="form-box-item">
+        <form id="editProductComment" action="" method="Post">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+            <div class="input-container">
+                <label for="Body" class="rl-label">@Admin.CommentText</label>
+                <textarea id="Body" name="Body" data-val="true" data-val-required="@Admin.RequiredExplain">@Model.Body</textarea>
+                <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

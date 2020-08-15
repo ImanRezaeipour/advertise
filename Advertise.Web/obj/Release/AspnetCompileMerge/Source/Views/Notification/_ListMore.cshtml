@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@model Advertise.Core.Models.Notification.NotificationListViewModel
+@foreach (var item in Model.Notifications)
+{
+    @Html.Partial(MVC.Notification.Views._Item, item)
+}

@@ -1,0 +1,65 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Web.Framework.MvcPaging
+@model Advertise.Core.Models.UserViolation.UserViolationListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.ListViolationReports;
+    ViewBag.HasSearchbar = true;
+}
+<div id="PageName" data-action="loadViewType" data-event="load" data-page-name="usersReports"></div>
+<div class="dashboard-content">
+    <div id="search" class="list-searchbar">
+        <div class="input-container lists-header searchbar-header-container">
+            <input type="text" id="Term" name="Term" value="@Model.SearchRequest.Term" class="searchbar-lists-header" data-action="searchGrid" data-event="keyPress" placeholder="@Admin.SearchIn.PlusWord(" ").PlusWord(Admin.ListViolationReports)"/>
+            <button class="button secondary" type="button" data-action="navigate" data-event="click">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0)" class="list-searchbar-filter" data-action="listSearchbarFilterToggle" data-event="toggle">
+                <i class="fa fa-filter"></i>
+            </a>
+        </div>
+        <div class="input-container lists-header">
+            <select id="SortMember" name="SortMember" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortBy</option>
+                @foreach (var sortMember in Model.SortMemberList)
+                {
+                    <option value="@sortMember.Value" @if (sortMember.Value == Model.SearchRequest.SortMember){<text> selected</text>}>@sortMember.Text</option>}
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="SortDirection" name="SortDirection" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortDirection</option>
+                @foreach (var sortDirection in Model.SortDirectionList)
+                {
+                    <option value="@sortDirection.Value" @if (sortDirection.Value == Model.SearchRequest.SortDirection){<text> selected</text>}>@sortDirection.Text ()</option>}
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="PageSize" name="PageSize" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.PageSize</option>
+                @foreach (var pageSize in Model.PageSizeList)
+                {
+                    <option value="@pageSize.Value" @if (pageSize.Value == Model.SearchRequest.PageSize.ToString()){<text> selected</text>}>@pageSize.Text</option>}
+            </select>
+        </div>
+        <div class="view-types-wrapper">
+            <div class="grid-view-holder tooltipster" title="@Admin.ListView" data-action="renderView" data-event="click" data-param="grid">
+                <i class="fa fa-th-list fa-flip-horizontal"></i>
+            </div>
+            <div class="item-view-holder tooltipster" title="@Admin.GridView" data-action="renderView" data-event="click" data-param="item">
+                <i class="fa fa-th"></i>
+            </div>
+        </div>
+    </div>
+    <div class="landing-grids-wrapper">
+        <div class="product-list grid">
+            <div class="landing-column-wrapper">
+                @Html.Partial(MVC.UserViolation.Views._ListMore, Model)
+            </div>
+        </div>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.SearchRequest.PageSize, Model.SearchRequest.PageIndex, Model.SearchRequest.TotalCount).Options(opt => opt.PageRouteValueKey("pageindex").RouteValues(new { }).AddFromQueryString(Request))
+    </div>
+</div>

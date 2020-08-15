@@ -1,0 +1,122 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.User.UserViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items user-items">
+    <div class="product-item column landing-column">
+        <div class="part-eight">
+            <input type="hidden" id="UserName" name="UserName" value="@Model.UserName"/>
+            @if (User.IsInRole(Auth.CanEditUser) || User.IsInRole(Auth.CanDeleteUserMeta))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (User.IsInRole(Auth.CanEditUser))
+                        {
+                            <li>
+                                <a href="@Url.Action(MVC.User.Edit(Model.UserName))">
+                                    <span>@Admin.Edit</span>
+                                    <i class="fa fa-pencil fa-flip-horizontal"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanDeleteUserMeta))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="part-nine">
+            <div class="sharing-item-li">
+                <i class="fa fa-share-alt-square"></i>
+                <ul class="item-share-list">
+                    <li>
+                        <a href="@if (Model.IsSetUserName == true) {<text>@Url.Action(MVC.User.Detail(Model.UserName)).PlusWord("&text=").PlusWord(Model.UserName).BeforeWord("https://telegram.me/share/url?url=https://novinak.com")</text>}">
+                            <span>@Admin.Telegram</span>
+                            <i class="sharings fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@if (Model.IsSetUserName== true) {<text>@Url.Action(MVC.User.Detail(Model.UserName)).BeforeWord("https://plus.google.com/share?url=https://novinak.com")</text>}">
+                            <span>@Admin.GPlus</span>
+                            <i class="sharings fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@if (Model.IsSetUserName== true) {<text>@Url.Action(MVC.User.Detail(Model.UserName)).BeforeWord("https://www.facebook.com/sharer/sharer.php?u=https://novinak.com")</text>}">
+                            <span>@Admin.Facebook2</span>
+                            <i class="sharings fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@if (Model.IsSetUserName== true) {<text>@Url.Action(MVC.User.Detail(Model.UserName)).BeforeWord("https://twitter.com/home?status=https://novinak.com")</text>}">
+                            <span>@Admin.Twitter2</span>
+                            <i class="sharings fa fa-twitter"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span class="part-seven"><span>@Model.Role</span></span>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                @if (Model.AvatarFileName != null)
+                {
+                    <a href="@Url.Action(MVC.User.Detail(Model.UserName))">
+                        <div class="item-preview-image">
+                            <img src="@FileConst.ImagesWebPath.PlusWord(Model.AvatarFileName)" alt="@Model.FullName">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="item-preview-image">
+                        <img src="@FileConst.NoPreview" alt="user without avatar image">
+                    </div>
+                }
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="@Url.Action(MVC.User.Detail(Model.UserName))">
+            <p class="novinak-title text-header">@Model.FullName</p>
+        </a>
+        <a href="javascript:void(0)">
+            <p class="part-one">@Model.Email</p>
+        </a>
+        <p class="part-two pre-price"><i class="fa fa-id-card-o"></i> <span>@Admin.UserUserName.PlusWord(":")</span></p>
+        <p class="part-three"><span>@Model.UserName</span></p>
+        <hr class="line-separator item-footer">
+        <div class="part-four">
+            <figure class="user-avatar small">
+                @if (Model.CompanyLogoFileName != null)
+                {
+                    <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias)).AddSlug(Model.CompanyTitle)">
+                        <div class="novinak-owner-image">
+                            <img src="@FileConst.ImagesWebPath.PlusWord(Model.CompanyLogoFileName)" alt="@Model.FullName.PlusWord(" ").PlusWord(Model.CompanyTitle)">
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="novinak-owner-image">
+                        <img src="@FileConst.NoLogo" alt="store without logo">
+                    </div>
+                }
+            </figure>
+            <a href="@Url.Action(MVC.Company.Detail(Model.CompanyAlias)).AddSlug(Model.CompanyTitle)" class="tooltipster" title="@Model.CompanyTitle">
+                <p class="part-five text-header tiny">@Model.CompanyTitle</p>
+            </a>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>

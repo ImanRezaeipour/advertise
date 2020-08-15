@@ -1,0 +1,21 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Advertise.Data.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\ElmahEFLogger.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Z.EntityFramework.Plus.EF6.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Elmah.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\bin\Release\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Release\Advertise.Data.csprojResolveAssemblyReference.cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Release\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Data\obj\Release\Advertise.Data.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Release\Advertise.Data.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Release\Advertise.Data.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Release\Advertise.Data.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Data\obj\Release\Advertise.Data.csproj.CoreCompileInputs.cache

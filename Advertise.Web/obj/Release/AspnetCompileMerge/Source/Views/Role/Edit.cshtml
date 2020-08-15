@@ -1,0 +1,37 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.Role.RoleEditViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.EditRole;
+}
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.EditRole</h4>
+        <button form="editRole" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.Role.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+    </div>
+    <div class="form-box-item">
+        <form id="editRole" action="@Url.Action(MVC.Role.Edit())" method="Post">
+            <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+            @Html.AntiForgeryToken()
+            <div class="input-container half">
+                <label for="name" class="rl-label">@Admin.Title</label>
+                <input type="text" id="name" name="name" value="@Model.Name" placeholder="@Admin.Title" data-val="true" data-val-required="@Admin.RequiredTitle" data-val-length="@Admin.MessageLengthTitle" data-val-length-min="6" data-val-length-max="30" />
+                <span class="field-validation-error" data-valmsg-for="name" data-valmsg-replace="true"></span>
+            </div>
+            <div class="input-container">
+                <label for="permissionTree" class="rl-label">@Admin.Accesss</label>
+                <div id="permissionTree" style="direction:rtl" class="tree" data-action="treeRole" data-event="load" data-param="edit"></div>
+                <span class="field-validation-error" data-valmsg-for="permissions" data-valmsg-replace="true"></span>
+                <input type="hidden" id="permissions" name="permissions" value="" />
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

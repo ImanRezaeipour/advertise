@@ -1,0 +1,25 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@*@model MvcSiteMapProvider.Web.Html.Models.SiteMapPathHelperModel
+    @foreach (var node in Model) {
+        @Html.DisplayFor(m => node);
+        if (node != Model.Last()) {
+            <text>  &gt; </text>
+        }
+    }*@
+@model SiteMapPathHelperModel
+<ol class="breadcrumb">
+    @foreach (var node in Model)
+    {
+        if (node == Model.Last())
+        {
+            <li class="active">@Html.DisplayFor(m => node)</li>
+        }
+        else
+        {
+            <li>
+                @Html.DisplayFor(m => node)<span> &gt; </span>
+            </li>
+        }
+
+    }
+</ol>

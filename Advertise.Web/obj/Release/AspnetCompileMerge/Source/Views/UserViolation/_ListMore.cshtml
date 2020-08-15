@@ -1,0 +1,9 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.UserViolation.UserViolationListViewModel
+@{
+    Layout = null;
+}
+@foreach (var item in Model.Report)
+{
+    @Html.Partial(MVC.UserViolation.Views._Item, item)
+}

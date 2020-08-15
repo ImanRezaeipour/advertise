@@ -1,0 +1,58 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.UserSetting.UserSettingEditViewModel
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst
+@{
+    if (ViewBag.IsMyEdit != true)
+    {
+        Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    }
+    else
+    {
+        Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    }
+    ViewBag.Title = "تنظیمات کاربری";
+
+}
+    <div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>تنظیمات کاربری</h4>
+        <button form="editUserSetting" type="submit" class="button primary disabled-btn-link" disabled="disabled" >
+            <i class="fa fa-save"></i>
+            <span>@Admin.Save</span>
+        </button>
+        <a class="button primary" href="@Url.Action(MVC.UserSetting.List())">
+            <i class="fa fa-undo"></i>
+            <span>@Admin.Return</span>
+        </a>
+      
+    </div>
+    <div class="form-box-item">
+        <form id="editUserSetting" action="@Url.Action(MVC.UserSetting.Edit())" method="Post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+         
+            <div class="input-container half">
+                <label for="Language" class="rl-label">@Admin.Languages</label>
+                <select id="Language" name="Language">
+                    <option disabled="disabled">@Admin.Language</option>
+                    @foreach (var lang in Model.LanguageList)
+                    {
+                        <option value="@lang.Value" @if (Model.Language.ToString() == lang.Value) { <text> selected="selected" </text> }>@lang.Text</option>
+                    }
+                </select>
+            </div>
+            
+            <div class="input-container half">
+                <label for="Theme" class="rl-label">تم </label>
+                <select id="Theme" name="Theme" >
+                    <option disabled="disabled">تم</option>
+                    @foreach (var theme in Model.ThemeList)
+                    {
+                        <option value="@theme.Value" @if (Model.Theme.ToString() == theme.Value) { <text> selected="selected" </text>  }>@theme.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container"></div>
+        </form>
+    </div>
+</div>

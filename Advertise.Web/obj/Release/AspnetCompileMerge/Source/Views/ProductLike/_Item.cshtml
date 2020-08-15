@@ -1,0 +1,26 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.ProductLike.ProductLikeViewModel
+@{
+    Layout = null;
+}
+<div class="like-item-wrapper">
+    <a href="@Url.Action(MVC.Product.Detail(Model.Product.Code)).AddSlug(Model.BrandName)">
+        <figure class="like-item-img">
+            <img src="@FileConst.ImagesWebPath.PlusWord(Model.Product.ImageFileName)" alt="@Model.Product.CategoryTitle.PlusWord(" ").PlusWord(Model.Product.Title)">
+        </figure>
+    </a>
+    <ul class="like-item-texts">
+        <li>
+            <a href="@Url.Action(MVC.User.Detail(Model.LikedBy.UserName))">
+                <p class="like-item-title">@Model.LikedBy.CompanyTitle</p>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action(MVC.Company.Detail(Model.Product.CompanyAlias)).AddSlug(Model.BrandName)">
+                <p class="like-item-company">@Model.LikedBy.Email</p>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,70 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Web.Framework.MvcPaging
+@model Advertise.Core.Models.CompanyImage.CompanyImageListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.ListMyImages;
+}
+<div class="profile-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.ListMyImages</h4>
+        <a href="@Url.Action(MVC.CompanyImage.Create())" class="button mid-short primary">
+            <i class="fa fa-plus"></i>
+            <span>@Admin.AddImage</span>
+        </a>
+    </div>
+    <div id="search" class="headline buttons secondary">
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <select id="SortMember" name="SortMember" style="margin: 17px 0 0 15px; float: right;" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortBy</option>
+                @foreach (var sortMember in Model.SortMemberList)
+                {
+                    <option value="@sortMember.Value">@sortMember.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <select id="SortDirection" name="SortDirection" style="margin: 17px 0 0 15px; float: right;" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortDirection</option>
+                @foreach (var sortDirection in Model.SortDirectionList)
+                {
+                    <option value="@sortDirection.Value">@sortDirection.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <select id="PageSize" name="PageSize" style="margin: 17px 0 0 15px; float: right;" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.PageSize</option>
+                @foreach (var pageSize in Model.PageSizeList)
+                {
+                    <option value="@pageSize.Value">@pageSize.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <select id="State" name="State" style="margin: 17px 0 0 15px; float: right;" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.Status</option>
+                @foreach (var stateType in Model.StateList)
+                {
+                    <option value="@stateType.Value">@stateType.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <input type="text" id="Term" name="Term" data-action="searchGrid" data-event="keyPress" placeholder="@Admin.Search" style="height: 32px; float: right;" />
+        </div>
+        <button class="button secondary" type="button" data-action="navigate" data-event="click">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div class="landing-grids-wrapper">
+        <div class="product-list grid">
+            <div class="landing-column-wrapper">
+                @Html.Partial(MVC.CompanyImage.Views._ListMore, Model)
+            </div>
+        </div>
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.SearchRequest.PageSize, Model.SearchRequest.PageIndex, Model.SearchRequest.TotalCount).Options(opt => opt.PageRouteValueKey("pageindex").RouteValues(new { }).AddFromQueryString(Request))
+    </div>
+</div>

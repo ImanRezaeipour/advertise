@@ -1,0 +1,474 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.Company.CompanyDetailViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.Company.PlusWord(" ").PlusWord(Model.Title);
+    ViewBag.Keywords = Admin.Company.PlusWord(" ").PlusWord(Model.Title).PlusWord("،").PlusWord(Model.CategoryTitle).PlusWord("،").PlusWord(Model.CategoryTitle).PlusWord(" ").PlusWord(Model.Title).PlusWord("،").PlusWord(Admin.Novinak);
+    ViewBag.Description = Admin.Novinak.PlusWord(" ").PlusWord(Admin.OnlineShopping).PlusWord(" ").PlusWord(Model.CategoryTitle).PlusWord(" ").PlusWord(Admin.Company).PlusWord(" ").PlusWord(Model.Title);
+}
+@section og{
+    @if (Model.LogoFileName != null)
+    {
+        <meta property="og:image" content="@FileConst.ImagesWebPath.PlusWord(Model.LogoFileName)">
+    }
+    else
+    {
+        <meta property="og:image" content="@FileConst.LogoAvatar">
+    }
+}
+<div data-action="loadBusinessInfos" data-event="load" data-param="@Model.Alias"></div>
+<figure class="banner-figure">
+    @if (Model.CoverFileName != null)
+    {
+        <img class="banner-image" src="@FileConst.ImagesWebPath.PlusWord(Model.CoverFileName)" alt="@($"{Admin.Company} {Model.Title} {Admin.CoverPhoto}")" />
+    }
+    else
+    {
+        <img class="banner-image banner-covered" src="@FileConst.Banner" alt="@($"{Admin.Company} {Model.Title} {Admin.CoverPhotoDefaultNovinak}")" />
+        if (Model.IsMyself)
+        {
+            <div class="btn-middle-abs-wrapper">
+                <a href="@Url.Action(MVC.Company.Edit()).PlusWord("#UploadCompanyCoverPhoto")" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.AddCoverPhoto</a>
+            </div>
+        }
+    }
+</figure>
+<input type="hidden" id="countFollow" name="countFollow" value="@Model.FollowerCount" />
+<input type="hidden" id="CreatedById" name="CreatedById" value="@Model.CreatedById" />
+<div class="author-profile-meta-wrap">
+    <div class="author-profile-meta">
+        <div class="author-profile-info">
+            <div class="author-profile-info-item">
+                <p class="text-header"><i class="fa fa-calendar-check-o"></i>  @Admin.MemberSince.PlusWord(":")</p>
+                <p class="date-time">@Model.CreatedOn</p>
+            </div>
+            <div class="author-profile-info-item">
+                <p class="text-header"><i class="fa fa-calendar-plus-o"></i>  @Admin.EstablishedOn.PlusWord(":")</p>
+                <p class="date-time">@Model.EstablishedOn</p>
+            </div>
+            <div class="author-profile-info-item">
+                <p class="text-header"><i class="fa fa-group"></i>  @Admin.EmployeeCount.PlusWord(":")</p>
+                <p class="company-detail head-info">@Model.EmployeeCount</p>
+            </div>
+            <div class="author-profile-info-item">
+                <p class="text-header"><i class="fa fa-globe"></i>  @Admin.WebSite.PlusWord(":")</p>
+                <p>
+                    <a id="WebsiteAddress" class="primary first-load-info">
+                        <i class="fa fa-globe fa-spin fa-fw fa-2x"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-wrap">
+    <div class="section overflowable">
+        <div class="sidebar left author-profile">
+            <div class="sidebar-item author-bio company-detail">
+                @if (Model.LogoFileName != null)
+                {
+                    <div class="product-detail company-logo">
+                        <img src="@FileConst.ImagesWebPath.PlusWord(Model.LogoFileName)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.Title)">
+                    </div>
+                }
+                else
+                {
+                    <div class="product-detail company-logo">
+                        <img src="@FileConst.NoLogo" alt="store without logo">
+                    </div>
+                }
+                <p class="text-header">@Model.Title</p>
+                <p class="text-oneline">@Model.Slogan</p>
+                <p class="text-oneline">@Model.Description</p>
+                <h6><br></h6>
+                @if (Model.FullName != null)
+                {
+                    <a href="@Url.Action(MVC.User.Detail(Model.UserCode))">
+                        <p class="text-oneline">
+                            @Admin.CompanyManager.PlusWord(": ")
+                            <span href="#" class="primary">@Model.FullName</span>
+                        </p>
+                    </a>
+                }
+                else if (Model.UserUserName != null)
+                {
+                    <a href="@Url.Action(MVC.User.Detail(Model.UserCode))">
+                        <p class="text-oneline">
+                            @Admin.CompanyManager.PlusWord(": ")
+                            <span href="#" class="primary">@Model.UserUserName</span>
+                        </p>
+                    </a>
+                }
+                <div class="share-icons">
+                    <div class="share-links-wrapper">
+                        <p class="text-header small">@Admin.CommunicationChannels:</p>
+                        <div class="clearboth"></div>
+                        <ul class="share-links">
+                            <li><a href="javascript:void(0)" class="tlg" target="_blank"><i class="fa fa-send"></i></a></li>
+                            <li><a href="javascript:void(0)" class="gplus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="javascript:void(0)" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="javascript:void(0)" class="twt" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="side-statistics">
+                <h5><i class="fa fa-line-chart"></i> @Admin.Statistics.PlusWord(":")</h5>
+                <hr>
+                <ul class="side-statistic">
+                    <li>
+                        <div class="side-statistic-title">
+                            <h6><i class="fa fa-eye"></i> @Admin.Visitors.PlusWord(":")</h6>
+                        </div>
+                        <div class="side-statistic-value">
+                            <h6>@Model.VisitCount</h6>
+                            <hr>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="side-statistic-title">
+                            <h6><i class="fa fa-space-shuttle fa-flip-horizontal"></i> @Admin.Followers.PlusWord(":")</h6>
+                        </div>
+                        <div class="side-statistic-value">
+                            <h6 id="FollowerCount">@Model.FollowerCount</h6>
+                            <hr>
+                        </div>
+                    </li>
+                </ul>
+                <div class="follow-button-wrapper">
+                    <input id="Id" type="hidden" value="@Model.Id" />
+                    <a @if (User.Identity.IsAuthenticated != true) { <text> href="@Url.Action(MVC.Account.RegisterByEmail())" </text> } else { <text> href="javascript:void(0)" data-action="toggleFollowCompany" data-event="click" data-follow="@Admin.Follow" data-unfollow="@Admin.Unfollow" </text>}  class="follow-button @if (Model.InitFollow) {<text>followed-btn</text>} else {<text>unfollowed-btn</text>}">
+                        @if (Model.InitFollow) {<text>@Admin.Unfollow</text>} else {<text>@Admin.Follow</text>}
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-item product-info">
+                <h4>@Admin.ContactInfo.PlusWord(": ")</h4>
+                <hr class="line-separator">
+                <div class="information-layout">
+                    <div class="information-layout-item">
+                        <p class="text-header">@Admin.FieldOfActivity.PlusWord(": ")</p>
+                        <a href="@Url.Action(MVC.Category.Detail(Model.CategoryAlias)).AddSlug(Model.CategoryTitle)">
+                            <p class="category-text">@Model.CategoryTitle</p>
+                        </a>
+                    </div>
+                    @if (Model.PhoneNumber != null)
+                    {
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.Phone.PlusWord(": ")</p>
+                            <p id="PhoneNumber" class="company-detail side-text first-load-info">
+                                <i class="fa fa-phone fa-spin fa-fw fa-2x"></i>
+                            </p>
+                        </div>
+                    }
+                    @if (Model.MobileNumber != null)
+                    {
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.Mobile.PlusWord(": ")</p>
+                            <p id="MobileNumber" class="company-detail side-text first-load-info">
+                                <i class="fa fa-mobile fa-spin fa-fw fa-2x"></i>
+                            </p>
+                        </div>
+                    }
+                    @if (Model.Email != null)
+                    {
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.Email.PlusWord(": ")</p>
+                            <p id="EmailAddress" class="company-detail side-text first-load-info">
+                                <i class="fa fa-envelope fa-spin fa-fw fa-2x"></i>
+                            </p>
+                        </div>
+                    }
+                    @if (Model.Address.Extra != null)
+                    {
+                        <div class="information-layout-item">
+                            <p class="text-header">@Admin.Address.PlusWord(": ")</p>
+                            <p id="AddressPlace" class="company-detail side-address side-text first-load-info">
+                                <i class="fa fa-map-signs fa-spin fa-fw fa-2x"></i>
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+            <ul class="dropdown hover-effect" data-action="companyMenuPosition" data-event="load">
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="ProductsSection">
+                        <span><i class="fa fa-cubes"></i>  @Admin.Products</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="MapSection">
+                        <span><i class="fa fa-map-marker"></i>  @Admin.LocationOnTheMap</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="GalleriesSection">
+                        <span><i class="fa fa-image"></i>  @Admin.Galery</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="VideosSection">
+                        <span><i class="fa fa-video-camera fa-flip-horizontal"></i>  @Admin.VideoGallery</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="FilesSection">
+                        <span><i class="fa fa-paperclip"></i>  @Admin.Files</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="ConversationsSection">
+                        <span><i class="fa fa-comments"></i>  @Admin.PrivateConversation</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="ReviewsSection">
+                        <span><i class="fa fa-list-alt"></i>  @Admin.Review</span>
+                    </a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="javascript:void(0)" data-action="companyTabTransition" data-event="click" data-section="QAsSection">
+                        <span><i class="fa fa-question-circle"></i>  @Admin.QA</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content right" id="productForCompanyContainer"></div>
+        <div id="ProductDetailSection"></div>
+        <div class="content right">
+            <div id="ProductsSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-cubes"></i>  @Admin.Products</h4>
+                </div>
+                @if (Model.ProductList.Products.Any() != true)
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoProduct</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.Product.Create())" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.AddProduct</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="product-showcase detail-case">
+                        <div id="productlistContainer" class="landing-items-wrapper landing-items-disp">
+                            <div class="product-list grid">
+                                <div class="landing-column-wrapper">
+                                    @if (Model.IsMyself)
+                                    {
+                                        <div class="landing-items product-items">
+                                            <div class="product-item column landing-column">
+                                                <div class="product-preview-actions">
+                                                    <figure class="product-preview-image">
+                                                        <a href="@Url.Action(MVC.Product.Create())">
+                                                            <div class="item-preview-image">
+                                                                <img src="@FileConst.NewItem" alt="@Admin.NewProduct">
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <a href="@Url.Action(MVC.Product.Create())" class="item-part-two-link">
+                                                    <p class="part-two new-item-add"><i class="fa fa-plus-square"></i> <span>@Admin.NewProduct</span></p>
+                                                </a>
+                                                <div class="clearboth"></div>
+                                            </div>
+                                        </div>
+                                    }
+                                    @Html.Partial(MVC.Company.Views._ProductItemList, Model.ProductList)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="MapSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-map-marker"></i>  @Admin.LocationOnTheMap</h4>
+                </div>
+                @if (Model.Address.Latitude == "0" || Model.Address.Longitude == "0")
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoMap</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.Company.Edit()).PlusWord("#SetCompanyOnMap")" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.LocateOnTheMap</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="comment-list company-detail-map">
+                        @Model.Address.Longitude
+                        @Model.Address.Latitude
+                        <div class="company-map-holder">
+                            <input type="hidden" id="Address_Longitude" name="Address.Longitude" value="@Model.Address.Longitude.ZeroIfNull()"/>
+                            <input type="hidden" id="Address_Latitude" name="Address.Latitude" value="@Model.Address.Latitude.ZeroIfNull()"/>
+                            <div id="getMap" class="map-holder"></div>
+                        </div>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="GalleriesSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-image"></i>  @Admin.Galery</h4>
+                </div>
+                @if (Model.Images.Count == 0)
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoGallery</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.CompanyImage.Create())" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.NewGalleryImages</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="comment-list company-images">
+                        <div class="company-images-wrapper">
+                            @if (Model.Images.Count != 0)
+                            {
+                                foreach (var img in Model.Images)
+                                {
+                                    <div class="company-rings-wrapper">
+                                        <div class="company-image-inner">
+                                            <a href="javascript:void(0)" data-action="openModal" data-event="click">
+                                                <img src="@FileConst.ImagesWebPath.PlusWord(img.FileName)" class="inner-company-img" alt="@Model.Title.PlusWord(" ").PlusWord(img.FileName)">
+                                            </a>
+                                        </div>
+                                        <div class="company-image-holder"></div>
+                                    </div>
+                                }
+                                <div class="company-modal" data-action="closeModal" data-event="click"></div>
+                                <div class="modal-img-wrapper" data-action="closeModal" data-event="click">
+                                    <img src="" id="modal-image">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="company-rings-wrapper">
+                                    <div class="company-image-inner">
+                                        <a href="javascript:void(0)" data-action="openModal" data-event="click">
+                                            <img src="@FileConst.NoPreview" class="inner-company-img" alt="no-preview">
+                                        </a>
+                                    </div>
+                                    <div class="company-image-holder"></div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="VideosSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-video-camera fa-flip-horizontal"></i>  @Admin.VideoGallery</h4>
+                </div>
+                @if (Model.VideoList == null || Model.VideoList.CompanyVideos.Any() != true)
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoVideo</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.CompanyVideo.Create())" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.NewGalleryVideos</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="comment-list updating-section">
+                        <p>@Admin.VideoGallery</p>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="FilesSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-paperclip"></i>  @Admin.Files</h4>
+                </div>
+                @if (Model.FileList == null || Model.FileList.CompanyAttachments.Any() != true)
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoFile</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.CompanyAttachment.Create())" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.CreateAttachment</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="comment-list updating-section">
+                        <p>@Admin.ListAttachmnt</p>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="ConversationsSection" class="company-detail-section">
+                <div class="headline simple primary">
+                    <h4> @Admin.PrivateConversation</h4>
+                </div>
+                @Html.Partial(MVC.CompanyConversation.Views._Create, Model.ConversationList)
+                <div class="clearfix"></div>
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    <h3>@Admin.ForLeaveAComment <a href="@Url.Action(MVC.Account.Login())">@Admin.Enter</a> @Admin.FirstShavid </h3>
+                }
+                <br><br>
+            </div>
+            <div id="ReviewsSection" class="product-detail activated">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-list-alt"></i>  @Admin.Review</h4>
+                </div>
+                @if (Model.ReviewList == null || Model.ReviewList.CompanyReviews.Any() != true)
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-battery-empty fa-flip-horizontal"></i> @Admin.MessageSectionNoReview</p>
+                        @if (Model.IsMyself)
+                        {
+                            <div class="btn-middle-wrapper">
+                                <a href="@Url.Action(MVC.CompanyReview.Create())" class="btn-middle blue-btn-middle round-corners-five"><i class="fa fa-plus"></i> @Admin.AddingReviewRequest</a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="comment-list updating-section">
+                        <p><i class="fa fa-gear fa-spin fa-fw"></i>@Admin.MessageSectionUpdating</p>
+                    </div>
+                }
+                <br><br>
+            </div>
+            <div id="QAsSection" class="product-detail activated">
+                <div class="headline simple primary">
+                    <h4><i class="fa fa-question-circle"></i>  @Admin.QA</h4>
+                </div>
+                <div class="comment-list updating-section">
+                    <p><i class="fa fa-gear fa-spin fa-fw"></i>@Admin.MessageSectionUpdating</p>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+@section scripts {
+    <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDsVAy5ATsGkBA11NPQWSakpy0BiNuBPTc&callback=mapGet'></script>
+}

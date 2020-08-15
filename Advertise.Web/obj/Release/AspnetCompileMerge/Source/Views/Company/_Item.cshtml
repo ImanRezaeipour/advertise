@@ -1,0 +1,128 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@using Auth = Advertise.Service.Services.Permissions.AccessPermission.AccessPermissionConst;
+@model Advertise.Core.Models.Company.CompanyViewModel
+@{
+    Layout = null;
+}
+<div class="landing-items company-items">
+    <div class="product-item column landing-column">
+        <div class="part-eight">
+            @if (User.IsInRole(Auth.CanEditCompany) || User.IsInRole(Auth.CanMyEditCompany) || User.IsInRole(Auth.CanDeleteCompany) || User.IsInRole(Auth.CanChangeStateCompany))
+            {
+                <div class="item-edit-wrapper">
+                    <i class="fa fa-pencil-square"></i>
+                    <ul class="item-edit-list">
+                        @if (User.IsInRole(Auth.CanEditCompany) || User.IsInRole(Auth.CanMyEditCompany))
+                        {
+                            <li>
+                                <a href="@Url.Action(MVC.Company.Edit(Model.Alias))">
+                                    <span>@Admin.Edit</span>
+                                    <i class="fa fa-pencil fa-flip-horizontal"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanDeleteCompany))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Delete</span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanChangeStateCompany))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Approve</span>
+                                    <i class="fa fa-check-circle"></i>
+                                </a>
+                            </li>
+                        }
+                        @if (User.IsInRole(Auth.CanChangeStateCompany))
+                        {
+                            <li>
+                                <a href="#">
+                                    <span>@Admin.Ignore</span>
+                                    <i class="fa fa-times-circle"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="part-nine">
+            <div class="sharing-item-li">
+                <i class="fa fa-share-alt-square"></i>
+                <ul class="item-share-list">
+                    <li>
+                        <a href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title)).PlusWord("&text=").PlusWord(Model.Title).BeforeWord("https://telegram.me/share/url?url=https://novinak.com")">
+                            <span>@Admin.Telegram</span>
+                            <i class="sharings fa fa-telegram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title)).BeforeWord("https://plus.google.com/share?url=https://novinak.com")">
+                            <span>@Admin.GPlus</span>
+                            <i class="sharings fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title)).BeforeWord("https://www.facebook.com/sharer/sharer.php?u=https://novinak.com")">
+                            <span>@Admin.Facebook2</span>
+                            <i class="sharings fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title)).BeforeWord("https://twitter.com/home?status=https://novinak.com")">
+                            <span>@Admin.Twitter2</span>
+                            <i class="sharings fa fa-twitter"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-preview-actions">
+            <figure class="product-preview-image">
+                <a @if (Model.LogoFileName != null) {<text>href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title))"</text>}>
+                    <div class="item-preview-image">
+                        <img @if (Model.LogoFileName != null) {<text>src="@FileConst.ImagesWebPath.PlusWord(Model.LogoFileName)" alt="@Model.Title.PlusWord(" Company Image")"</text> } else {<text>src="@FileConst.NoLogo" alt="product without any preview image"</text>}>
+                    </div>
+                </a>
+            </figure>
+        </div>
+        <a class="novinak-title-link" href="@Url.Action(MVC.Company.Detail(Model.Alias,Model.Title))">
+            <p class="novinak-title text-header">@if (Model.Title != null) {<text>@Model.Title</text>} else {<text>@Admin.Untitled</text>}</p>
+        </a>
+        <a href="@Url.Action(MVC.Product.Search().AddRouteValues(new {c = Model.CategoryId}))">
+            <p class="part-one">@Model.CategoryTitle</p>
+        </a>
+        <p class="part-two">@Model.FollowerCount.ToString().PlusWord("   ")<span>@Admin.Followers</span> <i class="fa fa-mail-forward"></i></p>
+        <p class="part-three">@Model.ProductCount.ToString().PlusWord("   ")<span>@Admin.ProductsOrServices</span> <i class="fa fa-cubes"></i></p>
+        <hr class="line-separator item-footer">
+        <div class="part-four">
+            <figure class="user-avatar small">
+                <a @if (Model.UserAvatar != null) { <text> href="@Url.Action(MVC.User.Detail(Model.UserUserName))" </text> }>
+                    <div class="novinak-owner-image">
+                        <img @if (Model.UserAvatar != null) {<text>src="@FileConst.ImagesWebPath.PlusWord(Model.UserAvatar)" alt="@Model.Title.PlusWord(" ").PlusWord(Model.UserFullName)"</text>} else {<text>src="@FileConst.NoAvatarPth" alt="User Without Avatar"</text>}>
+                    </div>
+                </a>
+            </figure>
+            <a href="@Url.Action(MVC.User.Detail(Model.UserUserName))" class="tooltipster">
+                <p class="part-five text-header tiny">@Model.UserFullName</p>
+            </a>
+        </div>
+        <div class="part-six">
+            <div class="follow-button-wrapper">
+                <input id="Id" type="hidden" value="@Model.Id" />
+                <a @if (User.Identity.IsAuthenticated != true) { <text> href="@Url.Action(MVC.Account.RegisterByEmail())" </text> } else { <text> href="javascript:void(0)" data-action="toggleFollowCompany" data-event="click" data-follow="@Admin.Follow" data-unfollow="@Admin.Unfollow" </text>}  class="follow-button @if (Model.InitFollow) {<text>followed-btn</text>} else {<text>unfollowed-btn</text>}">
+                    @if (Model.InitFollow) {<text>@Admin.Unfollow</text>} else {<text>@Admin.Follow</text>}
+                </a>
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    </div>
+</div>

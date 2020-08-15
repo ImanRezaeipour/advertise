@@ -1,0 +1,115 @@
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Service.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Service.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Debug\Advertise.Service.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Debug\Advertise.Service.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\obj\Debug\Advertise.Service.csprojResolveAssemblyReference.cache
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Data.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\AutoMapper.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Elmah.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\ImageProcessor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Security.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\NReco.VideoConverter.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\NReco.VideoInfo.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Owin.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.Helpers.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.Mvc.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Core.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Advertise.Data.pdb
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\fa-IR\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\RedLock.StrongName.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\ar-SA\Advertise.Core.resources.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Z.ExtensionMethods.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\ElmahEFLogger.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.Linq.Dynamic.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\StackExchange.Redis.StrongName.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\StructureMap.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\StructureMap.Web.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\SmsIrRestful.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\JWT.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\MvcSiteMapProvider.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\EPPlus.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\itextsharp.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Base.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.Mvc.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.Web.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\HtmlAgilityPack.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\Castle.Core.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\StructureMap.DynamicInterception.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\FluentValidation.dll
+D:\Source\Workspaces\AdvertiseProject\Advertise\Advertise.Service\bin\Debug\LinqKit.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Service.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Service.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Data.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\AutoMapper.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Castle.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Elmah.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\EntityFramework.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\EPPlus.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\FluentValidation.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\ImageProcessor.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\itextsharp.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\JWT.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\LinqKit.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\MvcSiteMapProvider.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\NReco.VideoConverter.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\NReco.VideoInfo.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\RedLock.StrongName.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\SmsIrRestful.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\StackExchange.Redis.StrongName.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Base.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.Mvc.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Stimulsoft.Report.Web.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\StructureMap.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\StructureMap.DynamicInterception.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\StructureMap.Web.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Linq.Dynamic.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.Helpers.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.Mvc.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Z.EntityFramework.Plus.EF6.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Z.ExtensionMethods.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\ElmahEFLogger.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Owin.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Web.Administration.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.Razor.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Core.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\Advertise.Data.pdb
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\ar-SA\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\bin\Debug\fa-IR\Advertise.Core.resources.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Debug\Advertise.Service.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Debug\Advertise.Service.dll
+C:\Users\Iman\Source\Workspaces\Advertise Project\Advertise\Advertise.Service\obj\Debug\Advertise.Service.pdb

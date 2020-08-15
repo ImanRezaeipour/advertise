@@ -1,0 +1,56 @@
+@* Generator: MvcView GeneratePrettyNames: true *@
+@using Advertise.Web.Framework.MvcPaging
+@model Advertise.Core.Models.UserSetting.UserSettingListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._PanelLayout;
+    ViewBag.Title = Admin.ListUsers;
+}
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.ListUsers</h4>
+    </div>
+    <div id="search" class="headline buttons secondary">
+        <div class="input-container lists-header">
+            <select id="SortMember" name="SortMember" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortBy</option>
+                @foreach (var sortMember in Model.SortMemberList)
+                {
+                    <option value="@sortMember.Value "@if(sortMember.Value == Model.SearchRequest.SortMember){<text>selected</text>}>@sortMember.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="SortDirection" name="SortDirection" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortDirection</option>
+                @foreach (var sortDirection in Model.SortDirectionList)
+                {
+                    <option value="@sortDirection.Value" @if(sortDirection.Value == Model.SearchRequest.SortDirection){<text>selected</text>}>@sortDirection.Text</option>
+                }
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="PageSize" name="PageIndexSize" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.PageSize</option>
+                @foreach (var pageSize in Model.PageSizeList)
+                {
+                    <option value="@pageSize.Value" @if(pageSize.Value == Model.SearchRequest.PageSize.ToString()){<text>selected</text>}>@pageSize.Text</option>
+                }
+            </select>
+        </div>
+       
+        <div class="input-container" style="display: inline-block; margin-bottom: 0;">
+            <input type="text" id="Term" name="Term"  value="@Model.SearchRequest.Term" data-action="searchGrid" data-event="keyPress" placeholder="@Admin.Search" style="height: 32px; float: right;" />
+        </div>
+        
+        <button class="button secondary" type="button" data-action="navigate" data-event="click">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div class="form-box-item">
+        @Html.Partial(MVC.UserSetting.Views._ListMore, Model)
+
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.SearchRequest.PageSize, Model.SearchRequest.PageIndex, Model.SearchRequest.TotalCount).Options(opt => opt.PageRouteValueKey("pageindex").RouteValues(new { }).AddFromQueryString(Request))
+    </div>
+</div>

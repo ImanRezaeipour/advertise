@@ -1,0 +1,36 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = MVC.Shared.Views.SiteLayout._LandingLayout;
+    ViewBag.Title = Admin.CreateQuestion;
+}
+@model Advertise.Core.Models.CompanyQuestion.CompanyQuestionCreateViewModel
+<form action="@Url.Action(MVC.CompanyQuestion.Create())" method="Post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="CompanyId" name="CompanyId" value="@Model.CompanyId"/>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-ctrls">
+                <button type="submit" class="btn btn-md btn-primary-alt btn-label">
+                    <i class="fa fa-save"></i>
+                    @Admin.Save
+                </button>
+                <a class="btn btn-md btn-primary-alt btn-label" href="@Url.Action(MVC.CompanyQuestion.List())">
+                    <i class="fa fa-undo"></i>
+                    <span>@Admin.Return</span>
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="form-group">
+                        <i class="fa fa-archive"></i>
+                        <label for="Body" class="control-label">@Admin.QuestionText</label>
+                        <input type="text" id="Body" name="Body" class="form-control" placeholder="@Admin.QuestionText" data-val="true" data-val-required="@Admin.RequiredQuestion" data-val-length="@Admin.MessageLengthQuestion" data-val-length-min="10" data-val-length-max="200"/>
+                        <span class="field-validation-error" data-valmsg-for="Body" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

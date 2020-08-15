@@ -1,0 +1,62 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@model Advertise.Core.Models.CompanyFollow.CompanyFollowListViewModel
+@{
+    Layout = MVC.Shared.Views.SiteLayout._ProfileLayout;
+    ViewBag.Title = Admin.ListMyFollows;
+}
+<div id="PageName" data-action="loadViewType" data-event="load" data-page-name="myCompanyFollows"></div>
+<div class="dashboard-content">
+    <div class="headline buttons primary">
+        <h4>@Admin.ListCompany</h4>
+    </div>
+    <div id="search" class="headline buttons secondary">
+        <div class="input-container lists-header">
+            <select id="SortMember" name="SortMember" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortBy</option>
+                @*@foreach (var sortMember in Model.SortMemberList)
+                {
+                    <option value="@sortMember.Value">@sortMember.Text</option>
+                }*@
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="SortDirection" name="SortDirection" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.SortDirection</option>
+                @*@foreach (var sortDirection in Model.SortDirectionList)
+                {
+                    <option value="@sortDirection.Value">@sortDirection.Text</option>
+                }*@
+            </select>
+        </div>
+        <div class="input-container lists-header">
+            <select id="PageSize" name="PageIndexSize" class="selectbar-lists-header" data-action="navigate" data-event="change">
+                <option disabled="disabled">@Admin.PageSize</option>
+                @*@foreach (var pageSize in Model.PageIndexSizeList)
+                {
+                    <option value="@pageSize.Value">@pageSize.Text</option>
+                }*@
+            </select>
+        </div>
+        <div class="view-types-wrapper">
+            <div class="grid-view-holder tooltipster" title="@Admin.ListView" data-action="renderView" data-event="click" data-param="grid">
+                <i class="fa fa-th-list fa-flip-horizontal"></i>
+            </div>
+            <div class="item-view-holder tooltipster" title="@Admin.GridView" data-action="renderView" data-event="click" data-param="item">
+                <i class="fa fa-th"></i>
+            </div>
+        </div>
+        <div class="input-container lists-header">
+            <input type="text" id="Term" name="Term" class="searchbar-lists-header" data-action="searchGrid" data-event="keyPress" placeholder="@Admin.Search" />
+        </div>
+        <button class="button secondary" type="button" data-action="navigate" data-event="click">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div class="landing-grids-wrapper">
+        <div class="product-list grid">
+            <div class="landing-column-wrapper">
+                @Html.Partial(MVC.CompanyFollow.Views._FollowListMore, Model)
+            </div>
+        </div>
+    </div>
+</div>

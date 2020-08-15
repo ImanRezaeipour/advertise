@@ -1,0 +1,37 @@
+﻿@* Generator: MvcView GeneratePrettyNames: true *@
+@{
+    Layout = null;
+}
+@using Advertise.Core.Extensions
+@using Advertise.Service.Services.File
+@model Advertise.Core.Models.Category.CategoryDetailViewModel
+<div class="panel panel-profile">
+    <div class="panel-body">
+        <input type="hidden" id="categoryId" name="categoryId" value="@Model.Id"/>
+        <img src="@FileConst.ImagesWebPath.RemoveTilde().PlusSlash().PlusWord(Model.ImageFileName)" class="img-circle">
+        <div class="name"></div>
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <i class="fa " style="color: red; font-size: large;" aria-hidden="true" id="HeartLike" data-action="initLikeCategory" data-event="load"></i>
+            }
+            else
+            {
+                <i class="fa fa-heart-o" style="color: red; font-size: large;" aria-hidden="true" id="HeartLike" onclick="infoNoty('@Admin.PleaseRegister')">
+                </i>
+            }
+
+        </div>
+        <div>
+            <span id="CountFollow">
+            </span>
+        </div>
+        <td>
+            <a href="#">@Model.Title </a>
+        </td>
+    </div>
+</div>
+<script type="text/javascript">
+    initLike('#HeartLike');
+    justLoad('#CountFollow');
+</script>
